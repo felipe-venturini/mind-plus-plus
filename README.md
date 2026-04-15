@@ -91,7 +91,7 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 
 | Skill | What it does | Example trigger |
 |-------|--------------|-----------------|
-| `setup` | Bootstraps your vault from scratch | "set up my second brain" |
+| `setup-mind-plus-plus` | Bootstraps your vault from scratch | "set up my second brain" |
 | `user-profile` | Captures your professional and personal profile | "update my profile" |
 | `new-meeting` | Turns transcripts or notes into structured meeting records with action items | "I had a meeting with X" |
 | `meeting-prep` | Pre-meeting briefing — last meetings, open tasks, talking points | "prep for meeting with X" |

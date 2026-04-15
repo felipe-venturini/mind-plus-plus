@@ -32,5 +32,5 @@ reading local vault files only. Connectors unlock the full pipeline experience.
 
 1. In Cowork, open **Settings → Connectors**
 2. Connect the services you use (Google Calendar, Gmail, etc.)
-3. Run the `setup` skill to configure your vault
+3. Run the `setup-mind-plus-plus` skill to configure your vault
 4. Done — Claude will route `~~category` calls to your connected services automatically

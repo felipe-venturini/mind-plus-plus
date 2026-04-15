@@ -91,7 +91,7 @@ Das war's. Je mehr du es benutzt, desto mehr wird dein Vault zu einem echten zwe
 
 | Skill | Was sie tut | Beispiel-Trigger |
 |-------|------------|-----------------|
-| `setup` | Bootstrap deines Vaults von Null | „richte mein zweites Gehirn ein" |
+| `setup-mind-plus-plus` | Bootstrap deines Vaults von Null | „richte mein zweites Gehirn ein" |
 | `user-profile` | Erfasst dein berufliches und persönliches Profil | „aktualisiere mein Profil" |
 | `new-meeting` | Verwandelt Transkripte oder Notizen in strukturierte Meeting-Einträge mit Action Items | „ich hatte ein Meeting mit X" |
 | `meeting-prep` | Vor-Meeting-Briefing — letzte Meetings, offene Aufgaben, Gesprächspunkte | „bereite mich aufs Meeting mit X vor" |

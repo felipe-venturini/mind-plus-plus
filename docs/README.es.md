@@ -91,7 +91,7 @@ Eso es todo. Mientras más lo uses, más se vuelve tu vault un verdadero segundo
 
 | Skill | Qué hace | Ejemplo de gatillo |
 |-------|----------|--------------------|
-| `setup` | Bootstrap del vault desde cero | "configurar mi segundo cerebro" |
+| `setup-mind-plus-plus` | Bootstrap del vault desde cero | "configurar mi segundo cerebro" |
 | `user-profile` | Captura tu perfil profesional y personal | "actualizar mi perfil" |
 | `new-meeting` | Convierte transcripciones o notas en actas estructuradas con acciones | "tuve una reunión con X" |
 | `meeting-prep` | Briefing pre-reunión — últimas actas, tareas abiertas, temas | "prep para reunión con X" |

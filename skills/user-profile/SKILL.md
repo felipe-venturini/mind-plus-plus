@@ -44,7 +44,7 @@ If updating from a conversation, extract from context:
 If capturing proactively (user mentioned something relevant), confirm before saving:
 > "I noticed you mentioned [X]. Would you like me to save that to your profile?"
 
-Also ask about the user's preferred language for vault content — this is saved to the profile and used by the `setup` skill when generating `CLAUDE.md`.
+Also ask about the user's preferred language for vault content — this is saved to the profile and used by the `setup-mind-plus-plus` skill when generating `CLAUDE.md`.
 
 ---
 

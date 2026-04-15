@@ -1,9 +1,9 @@
 ---
-name: setup
-description: "Sets up the second brain from scratch — creates vault folder structure, captures the user profile, and generates configuration files. Use this skill when the user installs the plugin for the first time, says 'set up my second brain', 'setup', 'start from scratch', 'configure vault', or when no vault structure is found. Also trigger when the user wants to reset or update the base configuration of the system."
+name: setup-mind-plus-plus
+description: "Sets up the Mind++ second brain from scratch — creates vault folder structure, captures the user profile, and generates configuration files. Use this skill when the user installs the plugin for the first time, says 'set up my second brain', 'set up mind plus plus', 'setup-mind-plus-plus', 'start from scratch', 'configure vault', or when no vault structure is found. Also trigger when the user wants to reset or update the base configuration of the system."
 ---
 
-# Skill: setup
+# Skill: setup-mind-plus-plus
 
 ## What this skill does
 

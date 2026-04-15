@@ -91,7 +91,7 @@ Voilà. Plus vous l'utilisez, plus votre vault devient un vrai second cerveau.
 
 | Skill | Ce qu'elle fait | Exemple de déclencheur |
 |-------|----------------|------------------------|
-| `setup` | Bootstrap du vault depuis zéro | « configure mon second cerveau » |
+| `setup-mind-plus-plus` | Bootstrap du vault depuis zéro | « configure mon second cerveau » |
 | `user-profile` | Capture votre profil professionnel et personnel | « mets à jour mon profil » |
 | `new-meeting` | Transforme transcriptions ou notes en comptes-rendus structurés avec actions | « j'ai eu une réunion avec X » |
 | `meeting-prep` | Briefing pré-réunion — dernières notes, tâches ouvertes, points de discussion | « prépare la réunion avec X » |

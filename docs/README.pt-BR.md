@@ -91,7 +91,7 @@ O setup vai perguntar sobre seu contexto de trabalho (clientes, produtos, ferram
 
 | Skill | O que faz | Exemplo de gatilho |
 |-------|-----------|--------------------|
-| `setup` | Faz o bootstrap do vault do zero | "configurar meu segundo cérebro" |
+| `setup-mind-plus-plus` | Faz o bootstrap do vault do zero | "configurar meu segundo cérebro" |
 | `user-profile` | Captura seu perfil profissional e pessoal | "atualizar meu perfil" |
 | `new-meeting` | Transforma transcrições ou notas em atas estruturadas com ações | "tive uma reunião com X" |
 | `meeting-prep` | Briefing pré-reunião — últimas atas, tarefas abertas, pautas | "prep para reunião com X" |
