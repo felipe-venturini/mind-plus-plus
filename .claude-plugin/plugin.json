@@ -6,6 +6,13 @@
     "name": "Felipe Venturini",
     "url": "https://github.com/felipe-venturini"
   },
+  "contributors": [
+    {
+      "name": "sioux1to1",
+      "url": "https://github.com/sioux1to1",
+      "role": "Co-author"
+    }
+  ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
   "keywords": ["obsidian", "pkm", "second-brain", "knowledge-management", "productivity", "meetings", "tasks", "zettelkasten"],

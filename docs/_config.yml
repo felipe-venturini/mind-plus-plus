@@ -1,0 +1,29 @@
+title: Mind++ for Claude
+description: Your second brain, powered by Claude — inside Obsidian. Free, open-source plugin for Claude Cowork.
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - README.md
+  - README.pt-BR.md
+  - README.es.md
+  - README.fr.md
+  - README.de.md
+  - README.zh.md
+  - README.hi.md
+  - README.ar.md
+  - README.bn.md
+  - README.ru.md
+  - README.ur.md
+url: "https://felipe-venturini.github.io"
+baseurl: "/mind-plus-plus"
+show_downloads: true
+github:
+  is_project_page: true
+  repository_url: https://github.com/felipe-venturini/mind-plus-plus
+  zip_url: https://github.com/felipe-venturini/mind-plus-plus/releases/latest/download/mind-plus-plus.plugin
