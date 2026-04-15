@@ -1,0 +1,13 @@
+{
+  "name": "mind-plus-plus",
+  "version": "1.0.0",
+  "description": "Your second brain powered by Claude — captures meetings, tracks commitments, delivers daily briefs, and maintains a living knowledge base for your professional and personal life.",
+  "author": {
+    "name": "Felipe Venturini",
+    "url": "https://github.com/felipe-venturini"
+  },
+  "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
+  "repository": "https://github.com/felipe-venturini/mind-plus-plus",
+  "keywords": ["obsidian", "pkm", "second-brain", "knowledge-management", "productivity", "meetings", "tasks", "zettelkasten"],
+  "license": "MIT"
+}
