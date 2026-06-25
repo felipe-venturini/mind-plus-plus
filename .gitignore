@@ -5,3 +5,6 @@
 .vscode/
 node_modules/
 *.log
+
+# Internal Superpowers planning artifacts (specs/plans) — local only, never published
+docs/superpowers/
