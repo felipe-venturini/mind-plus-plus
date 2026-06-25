@@ -2,7 +2,7 @@
 
 **Your second brain, powered by Claude — inside Obsidian.**
 
-> 🌍 Available in: [English](README.md) · [Português (BR)](README.pt-BR.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [中文](README.zh.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [বাংলা](README.bn.md) · [Русский](README.ru.md) · [اردو](README.ur.md)
+> 🌍 Available in (on the website): English (this page) · [Português (BR)](https://felipe-venturini.github.io/mind-plus-plus/README.pt-BR.html) · [Español](https://felipe-venturini.github.io/mind-plus-plus/README.es.html) · [Français](https://felipe-venturini.github.io/mind-plus-plus/README.fr.html) · [Deutsch](https://felipe-venturini.github.io/mind-plus-plus/README.de.html) · [中文](https://felipe-venturini.github.io/mind-plus-plus/README.zh.html) · [हिन्दी](https://felipe-venturini.github.io/mind-plus-plus/README.hi.html) · [العربية](https://felipe-venturini.github.io/mind-plus-plus/README.ar.html) · [বাংলা](https://felipe-venturini.github.io/mind-plus-plus/README.bn.html) · [Русский](https://felipe-venturini.github.io/mind-plus-plus/README.ru.html) · [اردو](https://felipe-venturini.github.io/mind-plus-plus/README.ur.html)
 >
 > 📖 **Full docs & guides** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **Website** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 

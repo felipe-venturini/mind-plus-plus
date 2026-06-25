@@ -24,7 +24,7 @@ Include:
 
 ### Add a translation
 
-Add a `README.{language-code}.md` file (e.g., `README.fr.md` for French) following the structure of the existing `README.md`. Then open a PR.
+Add a `docs/README.{language-code}.md` file (e.g., `docs/README.fr.md` for French) following the structure of the existing `docs/README.md`, and add it to the `include:` list in `docs/_config.yml`. Translations live only under `docs/` (they power the website at felipe-venturini.github.io/mind-plus-plus); the repo root keeps only the English `README.md`. Then open a PR.
 
 ### Contribute a new skill
 
@@ -81,18 +81,19 @@ mind-plus-plus/
 │   ├── daily-brief/
 │   ├── weekly-review/
 │   ├── process-inbox/
-│   └── process-meeting-emails/
-│       ├── SKILL.md
-│       └── references/          # (optional)
+│   ├── process-meeting-emails/
+│   │   ├── SKILL.md
+│   │   └── references/          # (optional)
+│   └── specialist/              # Orchestrator: routes requests to specialist agents
 ├── agents/
 │   ├── vault-researcher.md      # Deep multi-file research (invoked by knowledge-search)
-│   └── vault-auditor.md         # Scheduled or on-demand vault health check
+│   ├── vault-auditor.md         # Scheduled or on-demand vault health check
+│   └── marketing-bi-*.md        # BI specialists (discovered by `discipline` frontmatter)
 ├── CONNECTORS.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── README.md
-├── README.pt-BR.md
-└── README.es.md
+├── README.md                    # English (repo landing); translations live in docs/
+└── docs/                        # GitHub Pages site — README.md + per-language README.{lang}.md
 ```
 
 ---
