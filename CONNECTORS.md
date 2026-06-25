@@ -16,6 +16,7 @@ Claude automatically maps `~~calendar` to that service.
 | Email         | `~~email`          | `process-meeting-emails`                        | Gmail, Outlook                    |
 | Calendar      | `~~calendar`       | `daily-brief`, `weekly-review`, `new-meeting`, `process-meeting-emails` | Google Calendar, Outlook Calendar |
 | Cloud Storage | `~~cloud-storage`  | `process-meeting-emails` (full transcripts)     | Google Drive, OneDrive, Dropbox   |
+| Analytics (planned) | `~~analytics` | BI specialist agents (future live data)         | BigQuery, GA4, etc. — not yet wired |
 
 ## Which connectors are required?
 

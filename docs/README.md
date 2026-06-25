@@ -87,7 +87,7 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 
 ## What's inside the plugin
 
-### 12 skills
+### 13 skills
 
 | Skill | What it does | Example trigger |
 |-------|--------------|-----------------|
@@ -103,8 +103,9 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 | `weekly-review` | Friday consolidation: what got done, what's at risk, what's next | "weekly review" |
 | `process-inbox` | Triages files with no home, proposes a destination, waits for confirmation | "process inbox" |
 | `process-meeting-emails` | Automatic pipeline: Gemini / Fireflies / Otter emails → structured notes | "run meeting pipeline" |
+| `specialist` | Routes a request to BI specialists, loads vault history, synthesizes, and proposes a deliverable | "/specialist bi …" |
 
-### 2 agents
+### 6 agents
 
 Agents are autonomous subprocesses that run in isolation and return a clean result.
 
@@ -112,6 +113,14 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 |-------|-------------|-------------|
 | `vault-researcher` | Deep read across many files without flooding your main conversation | Automatically, when `knowledge-search` matches >15 files |
 | `vault-auditor` | Full vault health check: overdue tasks, silent clients, orphan files, stale decisions | On demand ("audit my vault") or scheduled weekly |
+| `marketing-bi-data-analyst` | BI: exploratory analysis, comparisons, "why did X change" from vault data | Via `specialist` (discipline `bi`) |
+| `marketing-bi-media-analytics` | BI: campaign/media performance — ROI/ROAS, CPA, CTR, channels, attribution | Via `specialist` (discipline `bi`) |
+| `marketing-bi-data-engineer` | BI: data provenance, reconciling disagreeing sources, metric definitions | Via `specialist` (discipline `bi`) |
+| `marketing-bi-insights` | BI: narrative and recommendation grounded in vault data | Via `specialist` (discipline `bi`) |
+
+> **Specialist agents** follow a `department-discipline-role` naming convention and are
+> discovered by their `discipline` frontmatter field, so new specialists can be added
+> without changing the `specialist` skill.
 
 ### Scheduled tasks
 
