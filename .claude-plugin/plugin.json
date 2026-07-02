@@ -74,7 +74,12 @@
     "./agents/tech/engineering/qa-engineer.md",
     "./agents/tech/infrastructure/infra-manager.md",
     "./agents/tech/infrastructure/infosec-analyst.md",
-    "./agents/tech/infrastructure/help-desk-analyst.md"
+    "./agents/tech/infrastructure/help-desk-analyst.md",
+    "./agents/finance/controllership/cfo.md",
+    "./agents/finance/controllership/controller.md",
+    "./agents/finance/operations/accounts-payable-analyst.md",
+    "./agents/finance/operations/accounts-receivable-analyst.md",
+    "./agents/finance/operations/treasury-analyst.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
