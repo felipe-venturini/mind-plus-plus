@@ -102,12 +102,31 @@ mind-plus-plus/
 │   │   ├── vault-researcher.md  # Deep multi-file research (invoked by knowledge-search)
 │   │   ├── vault-auditor.md     # Scheduled or on-demand vault health check
 │   │   └── specialist-judge.md  # Universal arbiter for the `specialist` skill
-│   └── marketing/               # `marketing` domain (agents discovered by `domain` frontmatter)
-│       ├── bi/                  # data-analyst, media-analytics, data-engineer, insights
-│       ├── media/               # planner, buyer, paid-traffic-analyst
-│       ├── seo/                 # strategist, technical-analyst, content-analyst, link-building-analyst
-│       ├── social/              # community-manager, analyst, sac-analyst
-│       └── planning/            # planner, research-analyst, influence-strategist
+│   ├── marketing/               # `marketing` domain (agents discovered by `domain` frontmatter)
+│   │   ├── bi/                  # data-analyst, media-analytics, data-engineer, insights
+│   │   ├── media/               # planner, buyer, paid-traffic-analyst
+│   │   ├── seo/                 # strategist, technical-analyst, content-analyst, link-building-analyst
+│   │   ├── social/              # community-manager, analyst, sac-analyst
+│   │   ├── planning/            # planner, research-analyst, influence-strategist
+│   │   ├── client-services/     # client-services specialists
+│   │   ├── creative/            # creative specialists
+│   │   ├── production/          # production specialists
+│   │   └── ops/                 # ops specialists
+│   ├── tech/                    # `tech` domain
+│   │   ├── engineering/         # cto, frontend/backend-developer, crm-automation-specialist, qa-engineer
+│   │   └── infrastructure/      # infra-manager, infosec-analyst, help-desk-analyst
+│   ├── finance/                 # `finance` domain
+│   │   ├── controllership/      # cfo, controller
+│   │   └── operations/          # accounts-payable/receivable-analyst, treasury-analyst
+│   ├── hr/                      # `hr` domain
+│   │   └── people/              # chro, business-partner, recruiter, training-analyst, culture-analyst
+│   ├── dp/                      # `dp` (Departamento Pessoal) domain
+│   │   └── personnel/           # coordinator, payroll-analyst, benefits-analyst, assistant
+│   ├── legal/                   # `legal` domain
+│   │   ├── advisory/            # general-counsel, corporate-lawyer, labor-lawyer, ip-specialist
+│   │   └── compliance/          # dpo
+│   └── admin/                   # `admin` domain
+│       └── facilities/          # manager, office-manager, receptionist
 ├── scripts/
 │   └── validate_plugin.py       # Checks every skill/agent is registered in plugin.json
 ├── .github/
@@ -144,9 +163,10 @@ per domain — so the plugin reads as a single, coherent unit:
   live under the domain they serve:
   - `agents/core/` — cross-cutting agents that serve the whole vault and belong
     to no business domain (e.g. `vault-researcher`, `vault-auditor`).
-  - `agents/marketing/` — the `marketing` domain. Today it holds the `bi`
-    discipline specialists under `agents/marketing/bi/`. Future domains (e.g.
-    `finance`, `personal`) and disciplines get their own nested subfolder.
+  - `agents/marketing/`, `agents/tech/`, `agents/finance/`, `agents/hr/`,
+    `agents/dp/`, `agents/legal/`, `agents/admin/` — the seven business domains,
+    each with their own discipline subfolders. New disciplines or roles get a
+    nested subfolder within the appropriate domain.
 
 The `specialist` skill (in `skills/core/`) is the bridge: it discovers the
 domain's specialists, then hands routing and arbitration to the universal
@@ -162,9 +182,9 @@ The `name:` field — not the filename or folder — is what Claude Code and the
 every reference. Routing keys off the `domain:` frontmatter field: you invoke
 `/specialist <domain> …` and the judge triages disciplines and roles.
 
-**Domain slugs** (reference for future expansion; only `marketing` is populated
-today): `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`. Create a
-domain's folder and agents on demand — do not scaffold empty domains.
+**Domain slugs:** `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`.
+All seven domains are now populated. Create new disciplines or roles within an
+existing domain's folder — do not scaffold empty domains.
 
 **Adding a new agent — two steps:**
 
