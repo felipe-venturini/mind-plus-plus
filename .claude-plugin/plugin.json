@@ -32,10 +32,10 @@
     "./agents/core/vault-researcher.md",
     "./agents/core/vault-auditor.md",
     "./agents/core/specialist-judge.md",
-    "./agents/marketing/marketing-bi-data-analyst.md",
-    "./agents/marketing/marketing-bi-media-analytics.md",
-    "./agents/marketing/marketing-bi-data-engineer.md",
-    "./agents/marketing/marketing-bi-insights.md"
+    "./agents/marketing/bi/data-analyst.md",
+    "./agents/marketing/bi/media-analytics.md",
+    "./agents/marketing/bi/data-engineer.md",
+    "./agents/marketing/bi/insights.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
