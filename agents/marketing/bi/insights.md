@@ -7,7 +7,7 @@ description: |
   skill for the `bi` discipline. Read-only: analyzes and proposes, never writes.
 
   <example>
-  Context: User asks "/specialist bi monta a leitura da campanha do Acme para a reunião"
+  Context: User asks "/specialist marketing monta a leitura da campanha do Acme para a reunião"
   assistant: "Dispatching marketing-bi-insights to build the narrative and recommendation from Acme's recorded performance..."
   <commentary>
   A "what does this mean and what do we recommend" request — the insights lens.

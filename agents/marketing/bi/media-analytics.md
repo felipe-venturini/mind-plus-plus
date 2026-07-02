@@ -7,7 +7,7 @@ description: |
   `bi` discipline. Read-only: analyzes and proposes, never writes.
 
   <example>
-  Context: User asks "/specialist bi qual o ROAS da campanha de inverno do cliente Acme?"
+  Context: User asks "/specialist marketing qual o ROAS da campanha de inverno do cliente Acme?"
   assistant: "Dispatching marketing-bi-media-analytics to read Acme's campaign notes and compute ROAS from recorded spend and revenue..."
   <commentary>
   A media-performance metric grounded in vault data — the media-analytics lens.

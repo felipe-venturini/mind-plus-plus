@@ -8,7 +8,7 @@ description: |
   proposes, never writes.
 
   <example>
-  Context: User asks "/specialist bi as conversões no dashboard do Acme batem com as das reuniões?"
+  Context: User asks "/specialist marketing as conversões no dashboard do Acme batem com as das reuniões?"
   assistant: "Dispatching marketing-bi-data-engineer to trace the conversion figure across the dashboard and meeting notes and reconcile them..."
   <commentary>
   A data-consistency / provenance question — the data-engineer's job.

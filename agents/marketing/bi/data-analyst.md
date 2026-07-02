@@ -8,7 +8,7 @@ description: |
   for the `bi` discipline. Read-only: analyzes and proposes, never writes.
 
   <example>
-  Context: User asks "/specialist bi por que as conversões do cliente Acme caíram em maio?"
+  Context: User asks "/specialist marketing por que as conversões do cliente Acme caíram em maio?"
   assistant: "Dispatching marketing-bi-data-analyst to read Acme's vault history and quantify the change..."
   <commentary>
   A "why did it change" question grounded in the client's recorded numbers — exactly the data-analyst's job.
