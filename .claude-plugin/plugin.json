@@ -66,7 +66,15 @@
     "./agents/marketing/media/director.md",
     "./agents/marketing/planning/director.md",
     "./agents/marketing/social/creator.md",
-    "./agents/marketing/bi/web-analytics.md"
+    "./agents/marketing/bi/web-analytics.md",
+    "./agents/tech/engineering/cto.md",
+    "./agents/tech/engineering/frontend-developer.md",
+    "./agents/tech/engineering/backend-developer.md",
+    "./agents/tech/engineering/crm-automation-specialist.md",
+    "./agents/tech/engineering/qa-engineer.md",
+    "./agents/tech/infrastructure/infra-manager.md",
+    "./agents/tech/infrastructure/infosec-analyst.md",
+    "./agents/tech/infrastructure/help-desk-analyst.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
