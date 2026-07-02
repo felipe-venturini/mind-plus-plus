@@ -103,7 +103,7 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 | `weekly-review` | Friday consolidation: what got done, what's at risk, what's next | "weekly review" |
 | `process-inbox` | Triages files with no home, proposes a destination, waits for confirmation | "process inbox" |
 | `process-meeting-emails` | Automatic pipeline: Gemini / Fireflies / Otter emails → structured notes | "run meeting pipeline" |
-| `specialist` | Routes a request through the universal judge, which triages specialists, arbitrates their reports (bounded bounce-back loop), and proposes a deliverable | "/specialist bi …" |
+| `specialist` | Routes a request through the universal judge, which triages specialists, arbitrates their reports (bounded bounce-back loop), and proposes a deliverable | "/specialist marketing …" |
 
 ### 7 agents
 
@@ -119,9 +119,11 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 | `marketing-bi-insights` | BI: narrative and recommendation grounded in vault data | Via `specialist` (discipline `bi`) |
 | `specialist-judge` | Universal arbiter: triages which specialists to run, reconciles reports, and rules on open doubts (bounce-back / ask-user / gap) | Via `specialist` (all disciplines) |
 
-> **Specialist agents** follow a `domain-discipline-role` naming convention and are
-> discovered by their `discipline` frontmatter field, so new specialists can be added
-> without changing the `specialist` skill.
+> **Specialist agents** live at `agents/{domain}/{discipline}/{role}.md` with a
+> fully-qualified `name:` (`{domain}-{discipline}-{role}`), and are discovered by their
+> `domain` frontmatter field, so new specialists can be added without changing the
+> `specialist` skill. You invoke by domain (`/specialist marketing …`) and the judge
+> picks the disciplines and roles.
 
 ### Scheduled tasks
 

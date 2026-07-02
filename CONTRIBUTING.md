@@ -100,9 +100,14 @@ mind-plus-plus/
 ├── agents/                      # Grouped by domain (one subfolder per domain)
 │   ├── core/                    # Cross-cutting agents, not tied to a business domain
 │   │   ├── vault-researcher.md  # Deep multi-file research (invoked by knowledge-search)
-│   │   └── vault-auditor.md     # Scheduled or on-demand vault health check
+│   │   ├── vault-auditor.md     # Scheduled or on-demand vault health check
+│   │   └── specialist-judge.md  # Universal arbiter for the `specialist` skill
 │   └── marketing/               # `marketing` domain
-│       └── marketing-bi-*.md    # BI specialists (discovered by `discipline` frontmatter)
+│       └── bi/                  # BI discipline (agents discovered by `domain` frontmatter)
+│           ├── data-analyst.md
+│           ├── media-analytics.md
+│           ├── data-engineer.md
+│           └── insights.md
 ├── scripts/
 │   └── validate_plugin.py       # Checks every skill/agent is registered in plugin.json
 ├── .github/
@@ -139,28 +144,34 @@ per domain — so the plugin reads as a single, coherent unit:
   live under the domain they serve:
   - `agents/core/` — cross-cutting agents that serve the whole vault and belong
     to no business domain (e.g. `vault-researcher`, `vault-auditor`).
-  - `agents/marketing/` — the `marketing` domain. Today it holds the BI
-    discipline specialists. Future domains (e.g. `finance`, `personal`) get
-    their own subfolder.
+  - `agents/marketing/` — the `marketing` domain. Today it holds the `bi`
+    discipline specialists under `agents/marketing/bi/`. Future domains (e.g.
+    `finance`, `personal`) and disciplines get their own nested subfolder.
 
 The `specialist` skill (in `skills/core/`) is the bridge: it discovers the
-discipline's specialists, then hands routing and arbitration to the universal
+domain's specialists, then hands routing and arbitration to the universal
 `specialist-judge` agent (`agents/core/specialist-judge.md`) — which triages the
 minimal set of specialists to run and reconciles their reports — while the skill
 itself is the only component that dispatches agents and writes to the vault.
 
-**Naming convention** for domain specialists: `<domain>-<discipline>-<role>`
-(e.g. `marketing-bi-data-analyst`). The `name:` frontmatter field — not the
-filename or folder — is what Claude Code and the `specialist` skill dispatch on,
-so keep `name:` stable: renaming it silently breaks every reference in the
-`specialist` skill, the READMEs, and the docs.
+**Naming convention** for domain specialists: files live at
+`agents/<domain>/<discipline>/<role>.md`, and the `name:` frontmatter is the
+fully-qualified `<domain>-<discipline>-<role>` (e.g. `marketing-bi-data-analyst`).
+The `name:` field — not the filename or folder — is what Claude Code and the
+`specialist` skill dispatch on, so keep `name:` stable: renaming it silently breaks
+every reference. Routing keys off the `domain:` frontmatter field: you invoke
+`/specialist <domain> …` and the judge triages disciplines and roles.
+
+**Domain slugs** (reference for future expansion; only `marketing` is populated
+today): `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`. Create a
+domain's folder and agents on demand — do not scaffold empty domains.
 
 **Adding a new agent — two steps:**
 
-1. Drop the `.md` file under the right domain folder (`agents/<domain>/`). For a
-   discipline specialist, include the `discipline: <discipline>` frontmatter
-   field — the `specialist` skill discovers it automatically with a recursive
-   `grep`, so no skill edit is needed.
+1. Drop the `.md` file at `agents/<domain>/<discipline>/<role>.md` with a
+   fully-qualified `name:` and both `domain: <domain>` and `discipline:
+   <discipline>` frontmatter fields — the `specialist` skill discovers it by
+   `domain` with a recursive `grep`, so no skill edit is needed.
 2. **Register its path in `.claude-plugin/plugin.json` under `"agents"`.** This
    field *replaces* the default `agents/` scan, so every agent must be listed
    there explicitly; an unlisted file is silently not loaded by the plugin.
