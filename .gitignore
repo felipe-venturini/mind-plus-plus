@@ -9,3 +9,6 @@ node_modules/
 # Internal planning artifacts (specs/plans) — local only, never published.
 # Kept outside docs/ so they can never leak into the GitHub Pages site.
 .planning/
+
+# Built plugin bundle — a release asset, not source.
+*.plugin

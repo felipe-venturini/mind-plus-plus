@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0] - 2026-07-02
+## [1.2.1] - 2026-07-02
+
+> First published build of this work. The `1.2.0` tag was retired under GitHub
+> immutable releases before its plugin bundle could be attached, so `1.2.1` ships
+> the same changes plus the packaging fix below.
 
 ### Added
 
@@ -71,6 +75,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Covenant 2.1), `SECURITY.md`, GitHub issue templates (bug, feature, new
   skill/agent, translation) and a pull-request template under `.github/`.
 
+### Fixed
+
+- **Packaging** — the release now ships a proper `mind-plus-plus.plugin` bundle (a
+  zip of `.claude-plugin/`, `agents/`, and `skills/`) as a downloadable asset, so the
+  Claude plugin uploader receives all 68 nested agent files.
+
 ### Internal
 
 - Added `scripts/validate_plugin.py` and a GitHub Actions workflow
@@ -101,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multi-language README, GitHub Pages, and canonical GitHub Wiki source
   (Home, Installation Guide, FAQ, Sync Strategies).
 
-[Unreleased]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.0...HEAD
-[1.2.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...v1.2.0
+[Unreleased]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...v1.2.1
 [1.1.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/felipe-venturini/mind-plus-plus/releases/tag/v1.0.0
