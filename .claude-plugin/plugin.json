@@ -57,7 +57,16 @@
     "./agents/marketing/production/graphic-producer.md",
     "./agents/marketing/production/av-producer.md",
     "./agents/marketing/production/motion-designer.md",
-    "./agents/marketing/production/casting-producer.md"
+    "./agents/marketing/production/casting-producer.md",
+    "./agents/marketing/client-services/director.md",
+    "./agents/marketing/client-services/account-manager.md",
+    "./agents/marketing/client-services/assistant.md",
+    "./agents/marketing/ops/project-manager.md",
+    "./agents/marketing/ops/workflow-coordinator.md",
+    "./agents/marketing/media/director.md",
+    "./agents/marketing/planning/director.md",
+    "./agents/marketing/social/creator.md",
+    "./agents/marketing/bi/web-analytics.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
