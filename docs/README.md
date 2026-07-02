@@ -105,7 +105,7 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 | `process-meeting-emails` | Automatic pipeline: Gemini / Fireflies / Otter emails → structured notes | "run meeting pipeline" |
 | `specialist` | Routes a request through the universal judge, which triages specialists, arbitrates their reports (bounded bounce-back loop), and proposes a deliverable | "/specialist marketing …" |
 
-### 7 agents
+### 20 agents
 
 Agents are autonomous subprocesses that run in isolation and return a clean result.
 
@@ -118,6 +118,10 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 | `marketing-bi-data-engineer` | BI: data provenance, reconciling disagreeing sources, metric definitions | Via `specialist` (discipline `bi`) |
 | `marketing-bi-insights` | BI: narrative and recommendation grounded in vault data | Via `specialist` (discipline `bi`) |
 | `specialist-judge` | Universal arbiter: triages which specialists to run, reconciles reports, and rules on open doubts (bounce-back / ask-user / gap) | Via `specialist` (all disciplines) |
+| `marketing-media-*` | Media: planning (channels/reach), buying (rates/placements), paid-traffic (CPA/conversion) — read-only over the vault | Via `specialist` (domain `marketing`) |
+| `marketing-seo-*` | SEO: strategy, technical, content/keywords, link-building — read-only over the vault | Via `specialist` (domain `marketing`) |
+| `marketing-social-*` | Social: community/tone, editorial+metrics analysis, SAC 2.0 — read-only over the vault | Via `specialist` (domain `marketing`) |
+| `marketing-planning-*` | Planning: communication paths, market/competitor research, influencer strategy — read-only over the vault | Via `specialist` (domain `marketing`) |
 
 > **Specialist agents** live at `agents/{domain}/{discipline}/{role}.md` with a
 > fully-qualified `name:` (`{domain}-{discipline}-{role}`), and are discovered by their

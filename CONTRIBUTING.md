@@ -102,12 +102,12 @@ mind-plus-plus/
 │   │   ├── vault-researcher.md  # Deep multi-file research (invoked by knowledge-search)
 │   │   ├── vault-auditor.md     # Scheduled or on-demand vault health check
 │   │   └── specialist-judge.md  # Universal arbiter for the `specialist` skill
-│   └── marketing/               # `marketing` domain
-│       └── bi/                  # BI discipline (agents discovered by `domain` frontmatter)
-│           ├── data-analyst.md
-│           ├── media-analytics.md
-│           ├── data-engineer.md
-│           └── insights.md
+│   └── marketing/               # `marketing` domain (agents discovered by `domain` frontmatter)
+│       ├── bi/                  # data-analyst, media-analytics, data-engineer, insights
+│       ├── media/               # planner, buyer, paid-traffic-analyst
+│       ├── seo/                 # strategist, technical-analyst, content-analyst, link-building-analyst
+│       ├── social/              # community-manager, analyst, sac-analyst
+│       └── planning/            # planner, research-analyst, influence-strategist
 ├── scripts/
 │   └── validate_plugin.py       # Checks every skill/agent is registered in plugin.json
 ├── .github/
