@@ -45,7 +45,10 @@
     "./agents/marketing/seo/link-building-analyst.md",
     "./agents/marketing/social/community-manager.md",
     "./agents/marketing/social/analyst.md",
-    "./agents/marketing/social/sac-analyst.md"
+    "./agents/marketing/social/sac-analyst.md",
+    "./agents/marketing/planning/planner.md",
+    "./agents/marketing/planning/research-analyst.md",
+    "./agents/marketing/planning/influence-strategist.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
