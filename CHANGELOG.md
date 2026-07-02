@@ -5,7 +5,25 @@ All notable changes to Mind++ for Claude are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.2.2] - 2026-07-02
+
+### Changed
+
+- **Agent files are now flat in `agents/`**, named
+  `{domain}__{discipline}__{role}` — double underscore between hierarchy levels,
+  single underscore within a name (à la BI/database naming, e.g.
+  `marketing__bi__data_analyst.md`). The nested
+  `agents/{domain}/{discipline}/{role}.md` layout is gone.
+- **`plugin.json` no longer lists `agents`** — agents are auto-discovered from the
+  flat `agents/` directory. Agent `name:` frontmatter (the dispatch key) and
+  domain-based routing are unchanged; only file locations/names changed.
+
+### Fixed
+
+- **Plugin upload** — the Claude plugin uploader treats `agents` manifest entries
+  as directories and rejected explicit file paths ("No agent files found in
+  specified directories"). Auto-discovery is non-recursive, so agents are now flat
+  in `agents/`, which lets the uploader find all 68.
 
 ## [1.2.1] - 2026-07-02
 
@@ -111,7 +129,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multi-language README, GitHub Pages, and canonical GitHub Wiki source
   (Home, Installation Guide, FAQ, Sync Strategies).
 
-[Unreleased]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.1...HEAD
+[1.2.2]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...v1.2.1
 [1.1.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/felipe-venturini/mind-plus-plus/releases/tag/v1.0.0

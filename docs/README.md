@@ -126,8 +126,9 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 | `legal-*` | Legal: advisory (general-counsel, corporate, labor, IP) and compliance (DPO/LGPD) | Via `specialist legal` |
 | `admin-*` | Administrative & facilities: manager, office-manager, receptionist | Via `specialist admin` |
 
-> **Specialist agents** live at `agents/{domain}/{discipline}/{role}.md` with a
-> fully-qualified `name:` (`{domain}-{discipline}-{role}`), and are discovered by their
+> **Specialist agents** are flat files named `agents/{domain}__{discipline}__{role}.md`
+> (double underscore between levels, single within a name) with a fully-qualified
+> `name:` (`{domain}-{discipline}-{role}`). They're auto-discovered and routed by their
 > `domain` frontmatter field, so new specialists can be added without changing the
 > `specialist` skill. You invoke by domain (`/specialist marketing …`) and the judge
 > picks the disciplines and roles. Domains: `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`.

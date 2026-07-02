@@ -97,38 +97,16 @@ mind-plus-plus/
 │       │   ├── SKILL.md
 │       │   └── references/      # (optional)
 │       └── specialist/          # Orchestrator: routes requests to specialist agents
-├── agents/                      # Grouped by domain (one subfolder per domain)
-│   ├── core/                    # Cross-cutting agents, not tied to a business domain
-│   │   ├── vault-researcher.md  # Deep multi-file research (invoked by knowledge-search)
-│   │   ├── vault-auditor.md     # Scheduled or on-demand vault health check
-│   │   └── specialist-judge.md  # Universal arbiter for the `specialist` skill
-│   ├── marketing/               # `marketing` domain (agents discovered by `domain` frontmatter)
-│   │   ├── bi/                  # data-analyst, media-analytics, data-engineer, insights
-│   │   ├── media/               # planner, buyer, paid-traffic-analyst
-│   │   ├── seo/                 # strategist, technical-analyst, content-analyst, link-building-analyst
-│   │   ├── social/              # community-manager, analyst, sac-analyst
-│   │   ├── planning/            # planner, research-analyst, influence-strategist
-│   │   ├── client-services/     # client-services specialists
-│   │   ├── creative/            # creative specialists
-│   │   ├── production/          # production specialists
-│   │   └── ops/                 # ops specialists
-│   ├── tech/                    # `tech` domain
-│   │   ├── engineering/         # cto, frontend/backend-developer, crm-automation-specialist, qa-engineer
-│   │   └── infrastructure/      # infra-manager, infosec-analyst, help-desk-analyst
-│   ├── finance/                 # `finance` domain
-│   │   ├── controllership/      # cfo, controller
-│   │   └── operations/          # accounts-payable/receivable-analyst, treasury-analyst
-│   ├── hr/                      # `hr` domain
-│   │   └── people/              # chro, business-partner, recruiter, training-analyst, culture-analyst
-│   ├── dp/                      # `dp` (Departamento Pessoal) domain
-│   │   └── personnel/           # coordinator, payroll-analyst, benefits-analyst, assistant
-│   ├── legal/                   # `legal` domain
-│   │   ├── advisory/            # general-counsel, corporate-lawyer, labor-lawyer, ip-specialist
-│   │   └── compliance/          # dpo
-│   └── admin/                   # `admin` domain
-│       └── facilities/          # manager, office-manager, receptionist
+├── agents/                      # FLAT — auto-discovered; files named {domain}__{discipline}__{role}.md
+│   ├── core__vault_researcher.md    # name: vault-researcher — deep multi-file research
+│   ├── core__vault_auditor.md       # name: vault-auditor — vault health check
+│   ├── core__specialist_judge.md    # name: specialist-judge — universal arbiter
+│   ├── marketing__bi__data_analyst.md
+│   ├── marketing__media__paid_traffic_analyst.md
+│   ├── …                            # 65 business specialists across the 7 domains
+│   └── admin__facilities__receptionist.md
 ├── scripts/
-│   └── validate_plugin.py       # Checks every skill/agent is registered in plugin.json
+│   └── validate_plugin.py       # Checks skills are registered and agents are flat + named
 ├── .github/
 │   ├── workflows/               # CI (runs the validator on push/PR)
 │   ├── ISSUE_TEMPLATE/
@@ -159,14 +137,14 @@ per domain — so the plugin reads as a single, coherent unit:
 - **`skills/`** is the shared interaction layer. Skills are cross-cutting by
   nature, so today they all live under `skills/core/`. A future domain-specific
   skill would get its own subfolder (e.g. `skills/finance/`).
-- **`agents/`** is where the domain axis is actually populated — specialists
-  live under the domain they serve:
-  - `agents/core/` — cross-cutting agents that serve the whole vault and belong
-    to no business domain (e.g. `vault-researcher`, `vault-auditor`).
-  - `agents/marketing/`, `agents/tech/`, `agents/finance/`, `agents/hr/`,
-    `agents/dp/`, `agents/legal/`, `agents/admin/` — the seven business domains,
-    each with their own discipline subfolders. New disciplines or roles get a
-    nested subfolder within the appropriate domain.
+- **`agents/`** holds every specialist as a **flat** `.md` file (Claude
+  auto-discovers `agents/*.md`; discovery is not recursive, so agents must not be
+  nested). The domain axis lives in the **filename** and the **frontmatter**, not
+  in folders: files are named `{domain}__{discipline}__{role}.md` and carry
+  `domain:`/`discipline:` fields. `core__*` files are cross-cutting agents
+  (`vault-researcher`, `vault-auditor`, `specialist-judge`) that belong to no
+  business domain; the other files cover the seven business domains
+  (`marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`).
 
 The `specialist` skill (in `skills/core/`) is the bridge: it discovers the
 domain's specialists, then hands routing and arbitration to the universal
@@ -174,27 +152,30 @@ domain's specialists, then hands routing and arbitration to the universal
 minimal set of specialists to run and reconciles their reports — while the skill
 itself is the only component that dispatches agents and writes to the vault.
 
-**Naming convention** for domain specialists: files live at
-`agents/<domain>/<discipline>/<role>.md`, and the `name:` frontmatter is the
-fully-qualified `<domain>-<discipline>-<role>` (e.g. `marketing-bi-data-analyst`).
-The `name:` field — not the filename or folder — is what Claude Code and the
-`specialist` skill dispatch on, so keep `name:` stable: renaming it silently breaks
-every reference. Routing keys off the `domain:` frontmatter field: you invoke
-`/specialist <domain> …` and the judge triages disciplines and roles.
+**Naming convention** for domain specialists: files live **flat** at
+`agents/<domain>__<discipline>__<role>.md` — a **double underscore** (`__`)
+between hierarchy levels and a **single underscore** (`_`) within a name (BI /
+database style, e.g. `marketing__bi__data_analyst.md`,
+`marketing__creative__art_director.md`). The `name:` frontmatter stays the
+fully-qualified `<domain>-<discipline>-<role>` (e.g. `marketing-bi-data-analyst`)
+— that `name:`, not the filename, is what Claude Code and the `specialist` skill
+dispatch on, so keep it stable: renaming it silently breaks every reference.
+Routing keys off the `domain:` frontmatter field: you invoke `/specialist <domain>
+…` and the judge triages disciplines and roles.
 
-**Domain slugs:** `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`.
-All seven domains are now populated. Create new disciplines or roles within an
-existing domain's folder — do not scaffold empty domains.
+> **Why flat?** The Claude plugin uploader treats `agents` manifest entries as
+> directories and rejects file paths, and default agent discovery is not
+> recursive. A flat `agents/` with encoded filenames is the layout that both the
+> uploader and local tooling accept.
 
-**Adding a new agent — two steps:**
+**Domain slugs:** `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`
+(plus `core` for cross-cutting agents). All seven business domains are populated.
 
-1. Drop the `.md` file at `agents/<domain>/<discipline>/<role>.md` with a
-   fully-qualified `name:` and both `domain: <domain>` and `discipline:
-   <discipline>` frontmatter fields — the `specialist` skill discovers it by
-   `domain` with a recursive `grep`, so no skill edit is needed.
-2. **Register its path in `.claude-plugin/plugin.json` under `"agents"`.** This
-   field *replaces* the default `agents/` scan, so every agent must be listed
-   there explicitly; an unlisted file is silently not loaded by the plugin.
+**Adding a new agent — one step:** drop the `.md` file at
+`agents/<domain>__<discipline>__<role>.md` with a fully-qualified `name:` and
+`domain:`/`discipline:` frontmatter fields. Claude auto-discovers it (no
+`plugin.json` edit needed) and the `specialist` skill routes to it by `domain`.
+Run `python3 scripts/validate_plugin.py` to confirm it is flat, named, and unique.
 
 ---
 

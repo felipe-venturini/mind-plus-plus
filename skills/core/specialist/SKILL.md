@@ -209,17 +209,16 @@ the conversation.
 
 ## Scaling note (for maintainers)
 
-Agents live under `agents/{domain}/{discipline}/` (nested by domain, then
-discipline). Adding a role to an existing discipline = drop a new
-`agents/{domain}/{discipline}/{role}.md` whose `name:` frontmatter is the
+Agents are **flat** files in `agents/`, named
+`agents/{domain}__{discipline}__{role}.md` (double underscore between hierarchy
+levels, single underscore within a name — e.g. `marketing__bi__data_analyst.md`).
+Adding a role = drop a new file with that name whose `name:` frontmatter is the
 fully-qualified `{domain}-{discipline}-{role}` and whose `domain:`/`discipline:`
-fields are set **and register its path in `.claude-plugin/plugin.json` under
-`"agents"`** (that field replaces the default scan, so unlisted files are not
-loaded). This skill then discovers it automatically — Step 4's `grep` is recursive,
-so the nesting is no obstacle. Routing keys off the `domain:` field, and the
-universal `specialist-judge` in TRIAGE mode selects the specialists off their
-`description` fields (Step 5), so a new discipline or role needs no routing-table
-edit and no judge edit. Adding a new domain = create agents under a new
-`agents/{domain}/{discipline}/` with a new `domain:` value (registered in
-`plugin.json`) and call `/specialist {domain} ...`. This skill does not need to
-change.
+fields are set. Claude **auto-discovers** `agents/*.md` — no `plugin.json` edit
+(discovery is non-recursive, so keep agents flat, never nested). This skill then
+finds it automatically — Step 4's `grep '^domain:'` matches the frontmatter
+regardless of filename. Routing keys off the `domain:` field, and the universal
+`specialist-judge` in TRIAGE mode selects the specialists off their `description`
+fields (Step 5), so a new discipline, role, or domain needs no routing-table edit
+and no judge edit — just add the flat file and call `/specialist {domain} ...`.
+This skill does not need to change.
