@@ -38,7 +38,11 @@
     "./agents/marketing/bi/insights.md",
     "./agents/marketing/media/planner.md",
     "./agents/marketing/media/buyer.md",
-    "./agents/marketing/media/paid-traffic-analyst.md"
+    "./agents/marketing/media/paid-traffic-analyst.md",
+    "./agents/marketing/seo/strategist.md",
+    "./agents/marketing/seo/technical-analyst.md",
+    "./agents/marketing/seo/content-analyst.md",
+    "./agents/marketing/seo/link-building-analyst.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
