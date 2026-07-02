@@ -88,7 +88,12 @@
     "./agents/dp/personnel/coordinator.md",
     "./agents/dp/personnel/payroll-analyst.md",
     "./agents/dp/personnel/benefits-analyst.md",
-    "./agents/dp/personnel/assistant.md"
+    "./agents/dp/personnel/assistant.md",
+    "./agents/legal/advisory/general-counsel.md",
+    "./agents/legal/advisory/corporate-lawyer.md",
+    "./agents/legal/advisory/labor-lawyer.md",
+    "./agents/legal/advisory/ip-specialist.md",
+    "./agents/legal/compliance/dpo.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
