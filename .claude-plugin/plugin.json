@@ -79,7 +79,12 @@
     "./agents/finance/controllership/controller.md",
     "./agents/finance/operations/accounts-payable-analyst.md",
     "./agents/finance/operations/accounts-receivable-analyst.md",
-    "./agents/finance/operations/treasury-analyst.md"
+    "./agents/finance/operations/treasury-analyst.md",
+    "./agents/hr/people/chro.md",
+    "./agents/hr/people/business-partner.md",
+    "./agents/hr/people/recruiter.md",
+    "./agents/hr/people/training-analyst.md",
+    "./agents/hr/people/culture-analyst.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
