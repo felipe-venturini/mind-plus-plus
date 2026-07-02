@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-02
+
 ### Added
 
 - **`specialist` orchestrator skill** — the single entry point to Mind++'s
@@ -99,6 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multi-language README, GitHub Pages, and canonical GitHub Wiki source
   (Home, Installation Guide, FAQ, Sync Strategies).
 
-[Unreleased]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/felipe-venturini/mind-plus-plus/releases/tag/v1.0.0
