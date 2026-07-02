@@ -42,7 +42,10 @@
     "./agents/marketing/seo/strategist.md",
     "./agents/marketing/seo/technical-analyst.md",
     "./agents/marketing/seo/content-analyst.md",
-    "./agents/marketing/seo/link-building-analyst.md"
+    "./agents/marketing/seo/link-building-analyst.md",
+    "./agents/marketing/social/community-manager.md",
+    "./agents/marketing/social/analyst.md",
+    "./agents/marketing/social/sac-analyst.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
