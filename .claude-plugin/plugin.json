@@ -93,7 +93,10 @@
     "./agents/legal/advisory/corporate-lawyer.md",
     "./agents/legal/advisory/labor-lawyer.md",
     "./agents/legal/advisory/ip-specialist.md",
-    "./agents/legal/compliance/dpo.md"
+    "./agents/legal/compliance/dpo.md",
+    "./agents/admin/facilities/manager.md",
+    "./agents/admin/facilities/office-manager.md",
+    "./agents/admin/facilities/receptionist.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
