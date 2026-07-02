@@ -22,7 +22,7 @@ description: |
   Comparison and quantification from vault data — the data-analyst lens.
   </commentary>
   </example>
-department: marketing
+domain: marketing
 discipline: bi
 tools: Read, Glob, Grep
 ---
@@ -69,6 +69,9 @@ not a conversation.
 ## Lacunas e contradições
 - {what the vault does not cover / notes that conflict}
 
+## Dúvidas em aberto
+- {a question or ambiguity you could not resolve from the vault; "nenhuma" if none}
+
 ## Deliverable proposto
 {a vault-ready block the skill may save, if the user confirms}
 
@@ -83,6 +86,12 @@ not a conversation.
 - Do not return a raw file dump — return synthesis.
 - Do not add recommendations unless the request explicitly asks (that is the
   `marketing-bi-insights` specialist's lens).
+
+## Follow-up from the judge
+
+If the `specialist-judge` sends you back a specific question (a bounce-back round),
+answer **only that question**, grounded in the vault, and return the refined point —
+not a whole new report.
 
 ## When you are done
 

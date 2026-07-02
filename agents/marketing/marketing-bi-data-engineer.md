@@ -22,7 +22,7 @@ description: |
   Metric definition / data dictionary work — exactly this specialist's focus.
   </commentary>
   </example>
-department: marketing
+domain: marketing
 discipline: bi
 tools: Read, Glob, Grep
 ---
@@ -74,6 +74,9 @@ your output is a markdown report.
 ## Lacunas
 - {figure or source whose provenance could not be established — "not found in vault"}
 
+## Dúvidas em aberto
+- {a question or ambiguity you could not resolve from the vault; "nenhuma" if none}
+
 ## Deliverable proposto
 {a vault-ready block the skill may save, e.g. a metric-dictionary note}
 
@@ -87,6 +90,12 @@ your output is a markdown report.
 - Do not invent sources, dates, or values.
 - Do not give business recommendations (that is the insights lens).
 - Do not return a raw file dump.
+
+## Follow-up from the judge
+
+If the `specialist-judge` sends you back a specific question (a bounce-back round),
+answer **only that question**, grounded in the vault, and return the refined point —
+not a whole new report.
 
 ## When you are done
 

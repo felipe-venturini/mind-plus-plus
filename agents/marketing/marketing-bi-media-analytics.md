@@ -21,7 +21,7 @@ description: |
   Channel/attribution comparison — exactly this specialist's focus.
   </commentary>
   </example>
-department: marketing
+domain: marketing
 discipline: bi
 tools: Read, Glob, Grep
 ---
@@ -70,6 +70,9 @@ report to the `specialist` skill — your output is a markdown report.
 ## Lacunas e contradições
 - {missing inputs / conflicting numbers}
 
+## Dúvidas em aberto
+- {a question or ambiguity you could not resolve from the vault; "nenhuma" if none}
+
 ## Deliverable proposto
 {a vault-ready block the skill may save, if the user confirms}
 
@@ -84,6 +87,12 @@ report to the `specialist` skill — your output is a markdown report.
 - Do not give optimization recommendations unless asked (that is the
   `marketing-bi-insights` lens).
 - Do not return a raw file dump.
+
+## Follow-up from the judge
+
+If the `specialist-judge` sends you back a specific question (a bounce-back round),
+answer **only that question**, grounded in the vault, and return the refined point —
+not a whole new report.
 
 ## When you are done
 
