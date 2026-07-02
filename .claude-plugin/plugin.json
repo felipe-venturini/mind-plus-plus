@@ -13,6 +13,30 @@
       "role": "Co-author"
     }
   ],
+  "skills": [
+    "./skills/core/setup-mind-plus-plus/",
+    "./skills/core/user-profile/",
+    "./skills/core/new-meeting/",
+    "./skills/core/meeting-prep/",
+    "./skills/core/capture-idea/",
+    "./skills/core/new-decision/",
+    "./skills/core/knowledge-search/",
+    "./skills/core/stakeholder-update/",
+    "./skills/core/daily-brief/",
+    "./skills/core/weekly-review/",
+    "./skills/core/process-inbox/",
+    "./skills/core/process-meeting-emails/",
+    "./skills/core/specialist/"
+  ],
+  "agents": [
+    "./agents/core/vault-researcher.md",
+    "./agents/core/vault-auditor.md",
+    "./agents/core/specialist-judge.md",
+    "./agents/marketing/marketing-bi-data-analyst.md",
+    "./agents/marketing/marketing-bi-media-analytics.md",
+    "./agents/marketing/marketing-bi-data-engineer.md",
+    "./agents/marketing/marketing-bi-insights.md"
+  ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
   "keywords": ["obsidian", "pkm", "second-brain", "knowledge-management", "productivity", "meetings", "tasks", "zettelkasten"],
