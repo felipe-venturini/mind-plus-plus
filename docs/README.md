@@ -87,7 +87,7 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 
 ## What's inside the plugin
 
-### 12 skills
+### 13 skills
 
 | Skill | What it does | Example trigger |
 |-------|--------------|-----------------|
@@ -103,8 +103,9 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 | `weekly-review` | Friday consolidation: what got done, what's at risk, what's next | "weekly review" |
 | `process-inbox` | Triages files with no home, proposes a destination, waits for confirmation | "process inbox" |
 | `process-meeting-emails` | Automatic pipeline: Gemini / Fireflies / Otter emails → structured notes | "run meeting pipeline" |
+| `specialist` | Routes a request through the universal judge, which triages specialists, arbitrates their reports (bounded bounce-back loop), and proposes a deliverable | "/specialist marketing …" |
 
-### 2 agents
+### 68 agents
 
 Agents are autonomous subprocesses that run in isolation and return a clean result.
 
@@ -112,6 +113,24 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 |-------|-------------|-------------|
 | `vault-researcher` | Deep read across many files without flooding your main conversation | Automatically, when `knowledge-search` matches >15 files |
 | `vault-auditor` | Full vault health check: overdue tasks, silent clients, orphan files, stale decisions | On demand ("audit my vault") or scheduled weekly |
+| `marketing-bi-data-analyst` | BI: exploratory analysis, comparisons, "why did X change" from vault data | Via `specialist` (discipline `bi`) |
+| `marketing-bi-media-analytics` | BI: campaign/media performance — ROI/ROAS, CPA, CTR, channels, attribution | Via `specialist` (discipline `bi`) |
+| `marketing-bi-data-engineer` | BI: data provenance, reconciling disagreeing sources, metric definitions | Via `specialist` (discipline `bi`) |
+| `marketing-bi-insights` | BI: narrative and recommendation grounded in vault data | Via `specialist` (discipline `bi`) |
+| `specialist-judge` | Universal arbiter: triages which specialists to run, reconciles reports, and rules on open doubts (bounce-back / ask-user / gap) | Via `specialist` (all disciplines) |
+| `marketing-*` (9 disciplines) | Marketing specialists: bi, media, seo, social, planning, client-services, creative, production, ops — read-only over the vault | Via `specialist marketing` |
+| `tech-*` | Technology: engineering (CTO, front/back, CRM/automation, QA) and infrastructure (infra, infosec, help-desk) | Via `specialist tech` |
+| `finance-*` | Finance: controllership (CFO, controller) and operations (payable, receivable, treasury) | Via `specialist finance` |
+| `hr-*` | HR / people: CHRO, business-partner, recruiter, training, culture | Via `specialist hr` |
+| `dp-*` | Departamento Pessoal: coordinator, payroll, benefits, assistant | Via `specialist dp` |
+| `legal-*` | Legal: advisory (general-counsel, corporate, labor, IP) and compliance (DPO/LGPD) | Via `specialist legal` |
+| `admin-*` | Administrative & facilities: manager, office-manager, receptionist | Via `specialist admin` |
+
+> **Specialist agents** live at `agents/{domain}/{discipline}/{role}.md` with a
+> fully-qualified `name:` (`{domain}-{discipline}-{role}`), and are discovered by their
+> `domain` frontmatter field, so new specialists can be added without changing the
+> `specialist` skill. You invoke by domain (`/specialist marketing …`) and the judge
+> picks the disciplines and roles. Domains: `marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`.
 
 ### Scheduled tasks
 
