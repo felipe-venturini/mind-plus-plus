@@ -9,12 +9,16 @@ arguments: [discipline]
 ## What this skill does
 
 Acts as the single entry point to Mind++'s specialist agents. It captures the
-user's request, loads the relevant vault history, discovers the specialist
-agents for the requested discipline, dispatches the right ones in parallel,
-synthesizes their (read-only) reports into one answer, and writes a deliverable
-to the vault **only after the user confirms**.
+user's request, loads the relevant vault history, discovers the specialist agents
+for the requested discipline, and hands routing and arbitration to the universal
+`specialist-judge` agent. The judge picks the minimal set of specialists to run,
+reconciles their (read-only) reports, and rules on every open doubt (bounce back to
+a specialist, escalate to the user, or record as a gap). This skill executes the
+judge's rulings — it is the only component that dispatches agents and the only one
+that writes to the vault, **and it writes only after the user confirms.**
 
-Specialists analyze and propose; **this skill is what writes.**
+Specialists analyze and propose; the judge routes and arbitrates; **this skill is
+what dispatches and writes.**
 
 ---
 
@@ -83,68 +87,85 @@ Currently, for the `bi` discipline, discovery returns:
 
 ---
 
-## Step 5 — Route by intent
+## Step 5 — Judge triage (which specialists to run)
 
-Route by matching the request's intent to each discovered agent's own
-`description` field — every agent's description states what that specialist is
-for. Select all agents whose focus matches the request; when the request spans
-more than one specialist, dispatch all of them in parallel (overlap is intended,
-not an error). For a broad request ("análise completa"), dispatch all of the
-discipline's agents.
+Do **not** route with a static table. Invoke `specialist-judge` in **TRIAGE mode**,
+passing:
+1. The user's request (the part after the discipline argument).
+2. The roster from Step 4 — each discovered agent's `name` and `description`.
 
-The table below is the worked routing for the `bi` discipline. For any other
-discipline, route off the discovered agents' `description` fields the same way —
-no table edit needed.
+Begin the prompt with `MODE: TRIAGE`. The judge returns the **minimal** set of
+specialists whose `description` matches the request, with a one-line justification
+for each selected and each rejected agent. Dispatch exactly the selected set.
 
-| Signals in the request | Agent(s) |
-|---|---|
-| ROI, ROAS, CPA, CTR, channel, campaign, media, attribution, funnel | `marketing-bi-media-analytics` |
-| "por que", comparison, trend, a metric from the vault, exploration | `marketing-bi-data-analyst` |
-| sources disagree, organize/structure data, metric definition/standardization, "where does this number come from" | `marketing-bi-data-engineer` |
-| recommendation, presentation, "the read on this", client summary, narrative | `marketing-bi-insights` |
-| broad request / "análise completa" | multiple, in parallel |
+**Never dispatch all specialists by default** — only when the judge selects them
+(e.g. a genuinely broad "análise completa"). Overlap across specialists is expected
+when a request fires more than one lens.
 
-> If a request fires signals from more than one single-agent row, dispatch all matching agents in parallel — partial overlap is intended behavior, not a routing error. Example: "compare channels by ROAS" → both `marketing-bi-data-analyst` and `marketing-bi-media-analytics`.
+> Fallback: if the judge is unavailable, route off the discovered agents'
+> `description` fields yourself, selecting the minimal matching set — still never all
+> by default.
 
 ---
 
-## Step 6 — Dispatch in parallel
+## Step 6 — Dispatch the selected specialists in parallel
 
-Dispatch the selected agents **in parallel**. Pass each one:
+Dispatch the specialists the judge selected in Step 5 **in parallel**. Pass each one:
 1. The user's request (the part after the discipline argument).
 2. The candidate file paths gathered in Step 3.
 
-All agents are read-only and return a markdown report ending in a
-"Deliverable proposto" section.
+All agents are read-only. Each returns a markdown report that includes a
+"Dúvidas em aberto" section and ends in a "Deliverable proposto" section.
 
 ---
 
-## Step 7 — Synthesize
+## Step 7 — Judge arbitration and resolution loop
 
-**This skill** merges the agents' reports into one answer (the specialists do
-not consume each other's output):
+Invoke `specialist-judge` in **ARBITRATION mode** (begin the prompt with
+`MODE: ARBITRATION`, and state the current round, starting at 1). Pass the user's
+request and every selected specialist's full report. The judge returns:
+- a **reconciled** view (dedup, ordered, wikilinks preserved, divergent numbers
+  surfaced not merged); and
+- a list of **unresolved items**, each tagged `[devolve]`, `[pergunta]`, or `[lacuna]`.
 
-- De-duplicate overlapping findings; keep one `[[source]]` per fact.
-- Order by relevance to the request.
-- Preserve every wikilink — traceability is non-negotiable.
-- Surface any contradiction the agents flagged.
-- Assemble a single **proposed deliverable** from the agents'
-  "Deliverable proposto" sections.
+Resolve the items, capped at **2 bounce-back rounds** total:
 
-Present in chat:
+1. **`[devolve]`** — re-dispatch the named specialist with the judge's specific
+   question (Step 6 mechanics, one targeted question). Collect the refined point.
+2. After collecting all bounce-backs for the round, re-invoke the judge in
+   ARBITRATION mode with the incremented round number and the refined points.
+3. Stop looping once there are no `[devolve]` items or after round 2. At round 3 the
+   judge is instructed to force every remaining item to `[pergunta]` or `[lacuna]`.
+4. **`[pergunta]`** items are handled in Step 8. **`[lacuna]`** items flow straight
+   into the final answer's gaps.
+
+## Step 8 — Escalate open questions to the user (batched)
+
+If arbitration produced any `[pergunta]` items, ask them **all at once** with a
+single `AskUserQuestion` call — one question per item, each offering the judge's **3
+suggested answers** (the tool automatically adds a free-text "Other" option). Do not
+ask them one at a time.
+
+Feed the user's answers back to the relevant specialist(s) for a final refine (Step 6
+mechanics), then re-invoke the judge in ARBITRATION mode once more to fold the answers
+into the reconciled view.
+
+## Step 9 — Present the reconciled answer
+
+Present the judge's final reconciled output in chat:
 
 ### 📌 Resposta
-The synthesized answer with inline `[[wikilinks]]`.
+The reconciled answer with inline `[[wikilinks]]`.
 
 ### 📄 Deliverable proposto
-The vault-ready note content.
+The vault-ready note content (the judge's assembled proposal).
 
 ### ⚠️ Lacunas
-Anything the vault did not cover.
+The `[lacuna]` items plus anything the vault did not cover.
 
 ---
 
-## Step 8 — Propose, confirm, write
+## Step 10 — Propose, confirm, write
 
 Ask where to save (offer the default), then write **only after the user
 confirms**:
@@ -185,10 +206,14 @@ the conversation.
 
 ## Scaling note (for maintainers)
 
-Adding a role to an existing discipline = drop a new
-`agents/{dept}-{discipline}-{role}.md` with the right `discipline` field; this
-skill discovers it automatically (Step 4). Routing is driven by the discovered
-agents' `description` fields (Step 5), so a new discipline needs no
-routing-table edit either. Adding a new discipline = create
-agents with a new `discipline` value and call `/specialist {discipline} ...`.
-This skill does not need to change.
+Agents live under `agents/{domain}/` (one subfolder per domain). Adding a role to
+an existing discipline = drop a new
+`agents/{domain}/{domain}-{discipline}-{role}.md` with the right `discipline`
+field **and register its path in `.claude-plugin/plugin.json` under `"agents"`**
+(that field replaces the default scan, so unlisted files are not loaded). This
+skill then discovers it automatically — Step 4's `grep` is recursive, so the
+subfolder is no obstacle. Routing is driven by the universal `specialist-judge` in
+TRIAGE mode off the discovered agents' `description` fields (Step 5), so a new
+discipline needs no routing-table edit and no judge edit either. Adding a new discipline = create agents with a new `discipline` value
+(in the appropriate domain folder, registered in `plugin.json`) and call
+`/specialist {discipline} ...`. This skill does not need to change.
