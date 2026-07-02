@@ -84,7 +84,11 @@
     "./agents/hr/people/business-partner.md",
     "./agents/hr/people/recruiter.md",
     "./agents/hr/people/training-analyst.md",
-    "./agents/hr/people/culture-analyst.md"
+    "./agents/hr/people/culture-analyst.md",
+    "./agents/dp/personnel/coordinator.md",
+    "./agents/dp/personnel/payroll-analyst.md",
+    "./agents/dp/personnel/benefits-analyst.md",
+    "./agents/dp/personnel/assistant.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
