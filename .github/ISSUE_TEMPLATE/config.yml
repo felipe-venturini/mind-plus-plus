@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation & guides
+    url: https://github.com/felipe-venturini/mind-plus-plus/wiki
+    about: Installation, FAQ, and sync strategies live on the Wiki.
+  - name: 💬 Questions & ideas
+    url: https://github.com/felipe-venturini/mind-plus-plus/issues
+    about: Open an issue tagged `question` — we're happy to help.
