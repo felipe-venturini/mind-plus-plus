@@ -103,9 +103,9 @@ That's it. The more you use it, the more your vault becomes a true second brain.
 | `weekly-review` | Friday consolidation: what got done, what's at risk, what's next | "weekly review" |
 | `process-inbox` | Triages files with no home, proposes a destination, waits for confirmation | "process inbox" |
 | `process-meeting-emails` | Automatic pipeline: Gemini / Fireflies / Otter emails → structured notes | "run meeting pipeline" |
-| `specialist` | Routes a request to BI specialists, loads vault history, synthesizes, and proposes a deliverable | "/specialist bi …" |
+| `specialist` | Routes a request through the universal judge, which triages specialists, arbitrates their reports (bounded bounce-back loop), and proposes a deliverable | "/specialist bi …" |
 
-### 6 agents
+### 7 agents
 
 Agents are autonomous subprocesses that run in isolation and return a clean result.
 
@@ -117,8 +117,9 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 | `marketing-bi-media-analytics` | BI: campaign/media performance — ROI/ROAS, CPA, CTR, channels, attribution | Via `specialist` (discipline `bi`) |
 | `marketing-bi-data-engineer` | BI: data provenance, reconciling disagreeing sources, metric definitions | Via `specialist` (discipline `bi`) |
 | `marketing-bi-insights` | BI: narrative and recommendation grounded in vault data | Via `specialist` (discipline `bi`) |
+| `specialist-judge` | Universal arbiter: triages which specialists to run, reconciles reports, and rules on open doubts (bounce-back / ask-user / gap) | Via `specialist` (all disciplines) |
 
-> **Specialist agents** follow a `department-discipline-role` naming convention and are
+> **Specialist agents** follow a `domain-discipline-role` naming convention and are
 > discovered by their `discipline` frontmatter field, so new specialists can be added
 > without changing the `specialist` skill.
 
