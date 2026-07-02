@@ -48,7 +48,16 @@
     "./agents/marketing/social/sac-analyst.md",
     "./agents/marketing/planning/planner.md",
     "./agents/marketing/planning/research-analyst.md",
-    "./agents/marketing/planning/influence-strategist.md"
+    "./agents/marketing/planning/influence-strategist.md",
+    "./agents/marketing/creative/creative-director.md",
+    "./agents/marketing/creative/art-director.md",
+    "./agents/marketing/creative/copywriter.md",
+    "./agents/marketing/creative/designer.md",
+    "./agents/marketing/creative/proofreader.md",
+    "./agents/marketing/production/graphic-producer.md",
+    "./agents/marketing/production/av-producer.md",
+    "./agents/marketing/production/motion-designer.md",
+    "./agents/marketing/production/casting-producer.md"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",
