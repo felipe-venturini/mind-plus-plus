@@ -1,18 +1,11 @@
 {
   "name": "mind-plus-plus",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Your second brain powered by Claude — captures meetings, tracks commitments, delivers daily briefs, and maintains a living knowledge base for your professional and personal life.",
   "author": {
     "name": "Felipe Venturini",
     "url": "https://github.com/felipe-venturini"
   },
-  "contributors": [
-    {
-      "name": "sioux1to1",
-      "url": "https://github.com/sioux1to1",
-      "role": "Co-author"
-    }
-  ],
   "skills": [
     "./skills/setup-mind-plus-plus/",
     "./skills/user-profile/",

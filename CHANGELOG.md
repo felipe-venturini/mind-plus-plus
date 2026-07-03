@@ -5,6 +5,19 @@ All notable changes to Mind++ for Claude are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] - 2026-07-02
+
+### Fixed
+
+- **Plugin now passes `claude plugin validate --strict`.** Removed the non-schema
+  `contributors` field from `plugin.json` — the plugin manifest schema does not
+  define it, so strict validation (used when adding the repo as a marketplace in
+  the Claude app) failed with "Falha ao criar marketplace." Co-author credit for
+  sioux1to1 remains in the README and CHANGELOG.
+- **Marketplace manifest** (`.claude-plugin/marketplace.json`, added this cycle)
+  renamed to `felipe-venturini` so the marketplace name is distinct from the
+  `mind-plus-plus` plugin name; install id is `mind-plus-plus@felipe-venturini`.
+
 ## [1.2.3] - 2026-07-02
 
 ### Changed
