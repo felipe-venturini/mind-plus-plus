@@ -2,8 +2,7 @@
   "name": "mind-plus-plus",
   "description": "Marketplace for Mind++ — your second brain powered by Claude",
   "owner": {
-    "name": "Felipe Venturini",
-    "url": "https://github.com/felipe-venturini"
+    "name": "Felipe Venturini"
   },
   "plugins": [
     {
@@ -12,8 +11,7 @@
       "version": "1.2.3",
       "source": "./",
       "author": {
-        "name": "Felipe Venturini",
-        "url": "https://github.com/felipe-venturini"
+        "name": "Felipe Venturini"
       },
       "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
       "repository": "https://github.com/felipe-venturini/mind-plus-plus",
