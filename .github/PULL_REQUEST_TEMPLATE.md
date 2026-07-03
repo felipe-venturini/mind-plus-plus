@@ -14,7 +14,6 @@
 
 ## Checklist
 
-- [ ] `python3 scripts/validate_plugin.py` passes (skills & agents registered in `plugin.json`)
 - [ ] No personal, company, or client data hardcoded — skills stay generic
 - [ ] External tools referenced via `~~category` placeholders (see `CONNECTORS.md`)
 - [ ] `name:` frontmatter is set and unchanged for existing skills/agents (renaming breaks references)

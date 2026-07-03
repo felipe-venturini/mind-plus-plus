@@ -1,6 +1,6 @@
 {
   "name": "mind-plus-plus",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Your second brain powered by Claude — captures meetings, tracks commitments, delivers daily briefs, and maintains a living knowledge base for your professional and personal life.",
   "author": {
     "name": "Felipe Venturini",
@@ -14,19 +14,19 @@
     }
   ],
   "skills": [
-    "./skills/core/setup-mind-plus-plus/",
-    "./skills/core/user-profile/",
-    "./skills/core/new-meeting/",
-    "./skills/core/meeting-prep/",
-    "./skills/core/capture-idea/",
-    "./skills/core/new-decision/",
-    "./skills/core/knowledge-search/",
-    "./skills/core/stakeholder-update/",
-    "./skills/core/daily-brief/",
-    "./skills/core/weekly-review/",
-    "./skills/core/process-inbox/",
-    "./skills/core/process-meeting-emails/",
-    "./skills/core/specialist/"
+    "./skills/setup-mind-plus-plus/",
+    "./skills/user-profile/",
+    "./skills/new-meeting/",
+    "./skills/meeting-prep/",
+    "./skills/capture-idea/",
+    "./skills/new-decision/",
+    "./skills/knowledge-search/",
+    "./skills/stakeholder-update/",
+    "./skills/daily-brief/",
+    "./skills/weekly-review/",
+    "./skills/process-inbox/",
+    "./skills/process-meeting-emails/",
+    "./skills/specialist/"
   ],
   "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
   "repository": "https://github.com/felipe-venturini/mind-plus-plus",

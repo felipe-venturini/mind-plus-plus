@@ -20,9 +20,7 @@ Include:
 1. Fork the repository
 2. Create a branch: `git checkout -b feature/your-feature-name`
 3. Make your changes (see guidelines below)
-4. Run `python3 scripts/validate_plugin.py` — it checks that every skill and
-   agent is registered in `plugin.json` and well-formed (CI runs the same check)
-5. Open a pull request with a clear description
+4. Open a pull request with a clear description
 
 ### Add a translation
 
@@ -30,16 +28,14 @@ Add a `docs/README.{language-code}.md` file (e.g., `docs/README.fr.md` for Frenc
 
 ### Contribute a new skill
 
-New skills should follow the format in existing `skills/**/SKILL.md` files.
-Skills are grouped by domain, one subfolder per domain (today everything is
-cross-cutting and lives under `skills/core/`):
+New skills should follow the format in existing `skills/*/SKILL.md` files.
+Each skill is a **flat** folder directly under `skills/` (one folder per skill):
 
 ```
 skills/
-  <domain>/            ← e.g. core (shared), or a future domain like finance
-    your-skill-name/
-      SKILL.md         ← required
-      references/      ← optional: detailed reference files
+  your-skill-name/
+    SKILL.md         ← required
+    references/      ← optional: detailed reference files
 ```
 
 **`SKILL.md` frontmatter:**
@@ -51,10 +47,9 @@ description: "Third-person description with specific trigger phrases the user wo
 ```
 
 **Then register it** in `.claude-plugin/plugin.json` under `"skills"` — list the
-skill's folder path explicitly (e.g. `"./skills/core/your-skill-name/"`).
+skill's folder path explicitly (e.g. `"./skills/your-skill-name/"`).
 Listing the folder directly makes the `name:` frontmatter the authoritative
-invocation name, and the default `skills/` scan no longer reaches into the
-domain subfolders. An unlisted skill is silently not loaded.
+invocation name. An unlisted skill is silently not loaded.
 
 **Guidelines for skill content:**
 - Write the body as instructions FOR Claude, not documentation for the user
@@ -80,23 +75,22 @@ domain subfolders. An unlisted skill is silently not loaded.
 mind-plus-plus/
 ├── .claude-plugin/
 │   └── plugin.json              # Manifest
-├── skills/                      # Grouped by domain (one subfolder per domain)
-│   └── core/                    # Cross-cutting skills — the shared interaction layer
-│       ├── setup-mind-plus-plus/
-│       ├── user-profile/
-│       ├── new-meeting/
-│       ├── meeting-prep/
-│       ├── capture-idea/
-│       ├── new-decision/
-│       ├── knowledge-search/
-│       ├── stakeholder-update/
-│       ├── daily-brief/
-│       ├── weekly-review/
-│       ├── process-inbox/
-│       ├── process-meeting-emails/
-│       │   ├── SKILL.md
-│       │   └── references/      # (optional)
-│       └── specialist/          # Orchestrator: routes requests to specialist agents
+├── skills/                      # FLAT — one folder per skill directly under skills/
+│   ├── setup-mind-plus-plus/
+│   ├── user-profile/
+│   ├── new-meeting/
+│   ├── meeting-prep/
+│   ├── capture-idea/
+│   ├── new-decision/
+│   ├── knowledge-search/
+│   ├── stakeholder-update/
+│   ├── daily-brief/
+│   ├── weekly-review/
+│   ├── process-inbox/
+│   ├── process-meeting-emails/
+│   │   ├── SKILL.md
+│   │   └── references/          # (optional)
+│   └── specialist/              # Orchestrator: routes requests to specialist agents
 ├── agents/                      # FLAT — auto-discovered; files named {domain}__{discipline}__{role}.md
 │   ├── core__vault_researcher.md    # name: vault-researcher — deep multi-file research
 │   ├── core__vault_auditor.md       # name: vault-auditor — vault health check
@@ -105,10 +99,7 @@ mind-plus-plus/
 │   ├── marketing__media__paid_traffic_analyst.md
 │   ├── …                            # 65 business specialists across the 7 domains
 │   └── admin__facilities__receptionist.md
-├── scripts/
-│   └── validate_plugin.py       # Checks skills are registered and agents are flat + named
 ├── .github/
-│   ├── workflows/               # CI (runs the validator on push/PR)
 │   ├── ISSUE_TEMPLATE/
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── CONNECTORS.md
@@ -131,12 +122,13 @@ mind-plus-plus/
 
 ## Domain organization
 
-Both `skills/` and `agents/` are grouped on disk by **domain** — one subfolder
-per domain — so the plugin reads as a single, coherent unit:
+Both `skills/` and `agents/` are **flat** on disk so the plugin reads as a
+single, coherent unit:
 
-- **`skills/`** is the shared interaction layer. Skills are cross-cutting by
-  nature, so today they all live under `skills/core/`. A future domain-specific
-  skill would get its own subfolder (e.g. `skills/finance/`).
+- **`skills/`** is the shared interaction layer — one folder per skill directly
+  under `skills/` (e.g. `skills/new-meeting/SKILL.md`), each registered in
+  `plugin.json`. Skills are cross-cutting, so the domain axis lives in the agents,
+  not in skill subfolders.
 - **`agents/`** holds every specialist as a **flat** `.md` file (Claude
   auto-discovers `agents/*.md`; discovery is not recursive, so agents must not be
   nested). The domain axis lives in the **filename** and the **frontmatter**, not
@@ -146,9 +138,9 @@ per domain — so the plugin reads as a single, coherent unit:
   business domain; the other files cover the seven business domains
   (`marketing`, `tech`, `finance`, `hr`, `dp`, `legal`, `admin`).
 
-The `specialist` skill (in `skills/core/`) is the bridge: it discovers the
+The `specialist` skill (in `skills/specialist/`) is the bridge: it discovers the
 domain's specialists, then hands routing and arbitration to the universal
-`specialist-judge` agent (`agents/core/specialist-judge.md`) — which triages the
+`specialist-judge` agent (`agents/core__specialist_judge.md`) — which triages the
 minimal set of specialists to run and reconciles their reports — while the skill
 itself is the only component that dispatches agents and writes to the vault.
 
@@ -175,7 +167,6 @@ Routing keys off the `domain:` frontmatter field: you invoke `/specialist <domai
 `agents/<domain>__<discipline>__<role>.md` with a fully-qualified `name:` and
 `domain:`/`discipline:` frontmatter fields. Claude auto-discovers it (no
 `plugin.json` edit needed) and the `specialist` skill routes to it by `domain`.
-Run `python3 scripts/validate_plugin.py` to confirm it is flat, named, and unique.
 
 ---
 

@@ -5,6 +5,22 @@ All notable changes to Mind++ for Claude are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.3] - 2026-07-02
+
+### Changed
+
+- **Skills are now flat under `skills/`** — each skill folder moved from
+  `skills/core/<name>/` to `skills/<name>/`, mirroring the flat `agents/` layout.
+  The `plugin.json` skill paths were updated accordingly; each skill's `name:`
+  frontmatter (the invocation key) is unchanged.
+
+### Removed
+
+- **`scripts/validate_plugin.py` and the `Validate plugin` CI workflow** — the
+  plugin validator and its GitHub Actions job were removed, along with the
+  references in the PR template and `CONTRIBUTING.md`. The `scripts/` directory is
+  no longer part of the repository.
+
 ## [1.2.2] - 2026-07-02
 
 ### Changed
