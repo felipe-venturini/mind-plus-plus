@@ -1,6 +1,5 @@
 {
   "name": "felipe-venturini",
-  "description": "Felipe Venturini's plugin catalog — home of Mind++, your second brain powered by Claude",
   "owner": {
     "name": "Felipe Venturini"
   },
@@ -8,15 +7,7 @@
     {
       "name": "mind-plus-plus",
       "description": "Your second brain powered by Claude — captures meetings, tracks commitments, delivers daily briefs, and maintains a living knowledge base for your professional and personal life.",
-      "version": "1.2.4",
-      "source": "./",
-      "author": {
-        "name": "Felipe Venturini"
-      },
-      "homepage": "https://github.com/felipe-venturini/mind-plus-plus",
-      "repository": "https://github.com/felipe-venturini/mind-plus-plus",
-      "license": "MIT",
-      "keywords": ["obsidian", "pkm", "second-brain", "knowledge-management", "productivity", "meetings", "tasks", "zettelkasten"]
+      "source": "./"
     }
   ]
 }
