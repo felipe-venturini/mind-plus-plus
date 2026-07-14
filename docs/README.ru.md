@@ -6,7 +6,7 @@
 >
 > 📖 **Полная документация и руководства** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **Веб-сайт** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 
-Mind++ — это бесплатный плагин с открытым исходным кодом для [Claude Cowork](https://claude.ai/download), который превращает Claude в проактивного партнёра по знаниям. Он фиксирует встречи, отслеживает обязательства, выдаёт ежедневные брифинги и поддерживает живую базу знаний для вашей профессиональной и личной жизни — всё хранится как обычный Markdown в хранилище (vault) [Obsidian](https://obsidian.md).
+Mind++ — это бесплатный плагин с открытым исходным кодом для [Claude](https://claude.ai/download), который превращает Claude в проактивного партнёра по знаниям. Он фиксирует встречи, отслеживает обязательства, выдаёт ежедневные брифинги и поддерживает живую базу знаний для вашей профессиональной и личной жизни — всё хранится как обычный Markdown в хранилище (vault) [Obsidian](https://obsidian.md).
 
 **Скачать плагин → [последний релиз](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)**
 
@@ -18,7 +18,7 @@ Mind++ — это бесплатный плагин с открытым исхо
 
 **Obsidian** — это бесплатное приложение ([obsidian.md](https://obsidian.md)), которое читает папку с `.md`-файлами (Markdown, обычный текст) на вашем компьютере и отображает их как красивую, взаимосвязанную тетрадь. Поскольку всё — это простой текст, **ваши заметки навсегда принадлежат вам** — никакой привязки к облаку, никаких платных подписок, никакого вендора, который может исчезнуть. Mind++ использует структуру Obsidian как основу, потому что это самый надёжный и приватный формат для личных знаний, существующий сегодня.
 
-**Claude Cowork** — это настольное приложение Claude ([claude.ai/download](https://claude.ai/download)), которое может читать и записывать файлы на вашем компьютере. Когда вы устанавливаете Mind++, Claude учится определённому способу организации ваших заметок в этой папке — так что когда вы говорите «у меня была встреча с Иваном», он пишет заметку, извлекает action items и автоматически обновляет ваш список задач.
+**Claude** — это десктопное приложение ([claude.ai/download](https://claude.ai/download) или CLI `claude`), которое может читать и записывать файлы на вашем компьютере. Когда вы устанавливаете Mind++, Claude учится определённому способу организации ваших заметок в этой папке — так что когда вы говорите «у меня была встреча с Иваном», он пишет заметку, извлекает action items и автоматически обновляет ваш список задач.
 
 **Вам не нужно быть разработчиком.** Не нужно знать Git. Не нужно знать YAML. Mind++ берёт на себя структуру; вы просто разговариваете с Claude.
 
@@ -43,7 +43,7 @@ Mind++ — это бесплатный плагин с открытым исхо
 
 | Инструмент | Что делает | Ссылка |
 |-----------|------------|--------|
-| **Claude Cowork** (обязательно) | Приложение Claude, которое запускает плагин | [claude.ai/download](https://claude.ai/download) |
+| **Claude** (обязательно) | Десктопное приложение или CLI — запускает плагин | [claude.ai/download](https://claude.ai/download) · [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code/overview) |
 | **Obsidian** (настоятельно рекомендуется) | Визуальный навигатор для ваших заметок | [obsidian.md](https://obsidian.md) |
 | **Выбор синхронизации** (опционально) | Бэкап и доступ откуда угодно — выберите один: [Obsidian Git](https://github.com/Vinzent03/obsidian-git), Google Drive, iCloud Drive, OneDrive или Dropbox | см. [Sync Strategies](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) |
 
@@ -52,20 +52,38 @@ Mind++ — это бесплатный плагин с открытым исхо
 Выберите папку на компьютере. Здесь будут храниться все заметки, встречи и решения.
 
 - **Проще всего** — создайте папку вроде `~/Documents/Mind++`
-- **Автоматический бэкап в облако** — создайте папку внутри облачно-синхронизированного места: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++` или `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). Obsidian и Cowork будут читать одни и те же файлы, а облачный сервис будет версионировать и синхронизировать их на все ваши устройства.
+- **Автоматический бэкап в облако** — создайте папку внутри облачно-синхронизированного места: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++` или `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). Obsidian и Claude будут читать одни и те же файлы, а облачный сервис будет версионировать и синхронизировать их на все ваши устройства.
 - **Путь продвинутого пользователя** — используйте [плагин Obsidian Git](https://github.com/Vinzent03/obsidian-git), чтобы версионировать хранилище в приватном GitHub-репозитории (даёт историю коммитов, откат и синхронизацию Android/iOS через мобильное приложение Obsidian)
 
 > См. [страницу Sync Strategies на Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) для компромиссов и рекомендации под каждый случай.
 
 ### 3. Установите плагин Mind++
 
-1. Скачайте последний файл [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)
-2. Откройте Claude Cowork → **Plugins**
-3. Перетащите файл `.plugin` в область плагинов (или нажмите «установить»)
+Выберите путь, соответствующий тому, как вы используете Claude:
 
-### 4. Выберите папку хранилища в Cowork
+**Вариант A — Десктопное приложение Claude** ([claude.ai/download](https://claude.ai/download))
 
-В Claude Cowork выберите папку, выбранную на шаге 2, как ваше рабочее пространство. Claude будет читать и писать прямо в неё.
+1. Загрузите последний файл [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)
+2. Откройте Claude → **Настройки** → **Плагины**
+3. Перетащите файл `.plugin` в панель плагинов (или нажмите **Установить из файла**)
+
+**Вариант B — Claude Code (CLI)**
+
+1. Добавьте маркетплейс Mind++ один раз:
+   ```bash
+   claude plugins marketplace add https://github.com/felipe-venturini/mind-plus-plus.git
+   ```
+2. Установите плагин:
+   ```bash
+   claude plugins install mind-plus-plus@felipe-venturini
+   ```
+3. Перезапустите Claude Code (`/quit`, затем снова откройте).
+
+### 4. Укажите Claude папку vault
+
+**Десктопное приложение:** В Claude → **Настройки** выберите папку из шага 2 в качестве рабочего пространства. Claude будет читать и писать прямо в неё.
+
+**Claude Code (CLI):** Откройте терминальную сессию внутри папки vault или запустите Claude Code из этой директории. Claude Code использует текущую рабочую директорию как корень проекта.
 
 ### 5. Запустите setup
 
@@ -115,7 +133,7 @@ Setup спросит про контекст работы (клиенты, пр�
 
 ### Запланированные задачи
 
-Cowork может запускать любой skill по расписанию. Setup предлагает создать:
+Claude может запускать любой skill по расписанию. Setup предлагает создать:
 
 | Задача | Расписание по умолчанию | Skill |
 |--------|-------------------------|-------|
@@ -154,7 +172,7 @@ archive/                ← закрытые элементы — перемещ
 
 ## Приватность
 
-Всё остаётся на вашем компьютере. Mind++ никуда не отправляет ваши данные. Единственные внешние сервисы, которые задействуются, — это те, которые вы явно подключаете в Cowork (например, Gmail для meeting pipeline, Google Calendar для daily brief) — и это opt-in.
+Всё остаётся на вашем компьютере. Mind++ никуда не отправляет ваши данные. Единственные внешние сервисы, которые задействуются, — это те, которые вы явно подключаете в Claude (например, Gmail для meeting pipeline, Google Calendar для daily brief) — и это opt-in.
 
 Если вы используете Obsidian Git или облачно-синхронизированную папку (Drive, OneDrive, Dropbox, iCloud), ваши заметки реплицируются в этот сервис — но вы его выбрали и вы его контролируете.
 
@@ -182,7 +200,7 @@ archive/                ← закрытые элементы — перемещ
 
 **В соавторстве с** [Felipe Venturini](https://github.com/felipe-venturini) и [sioux1to1](https://github.com/sioux1to1).
 
-Построено с [Claude](https://claude.ai) от Anthropic. Работает на [Claude Cowork](https://claude.ai/download) и вдохновлено сообществом [Obsidian](https://obsidian.md).
+Построено с [Claude](https://claude.ai) от Anthropic. Powered by [Claude](https://claude.ai/download) и вдохновлено сообществом [Obsidian](https://obsidian.md).
 
 ---
 

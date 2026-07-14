@@ -17,7 +17,7 @@ labels: bug
 **Which skill or agent?** (e.g. `daily-brief`, `marketing-bi-insights`)
 
 **Environment**
-- Claude Cowork version:
+- Claude version:
 - OS:
 - Vault sync method (if relevant): <!-- Obsidian Git / Drive / iCloud / none -->
 

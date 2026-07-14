@@ -6,7 +6,7 @@
 >
 > 📖 **完整文档和指南** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **网站** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 
-Mind++ 是 [Claude Cowork](https://claude.ai/download) 的免费开源插件，将 Claude 转变为主动的知识伙伴。它捕捉会议、追踪承诺、交付每日简报，并为你的职业和个人生活维护一个活的知识库 —— 全部以纯 Markdown 存储在 [Obsidian](https://obsidian.md) vault 中。
+Mind++ 是 [Claude](https://claude.ai/download) 的免费开源插件，将 Claude 转变为主动的知识伙伴。它捕捉会议、追踪承诺、交付每日简报，并为你的职业和个人生活维护一个活的知识库 —— 全部以纯 Markdown 存储在 [Obsidian](https://obsidian.md) vault 中。
 
 **下载插件 → [最新版本](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)**
 
@@ -18,7 +18,7 @@ Mind++ 是 [Claude Cowork](https://claude.ai/download) 的免费开源插件，�
 
 **Obsidian** 是一个免费应用（[obsidian.md](https://obsidian.md)），它读取你电脑上的 `.md`（Markdown，纯文本）文件夹，并将其显示为一个漂亮的互联笔记本。因为一切都是纯文本，**你的笔记永远属于你** —— 没有云端锁定，没有付费订阅，没有可能消失的供应商。Mind++ 使用 Obsidian 的文件夹结构作为基础，因为它是当今存在的最持久、最私密的个人知识格式。
 
-**Claude Cowork** 是 Claude 的桌面应用（[claude.ai/download](https://claude.ai/download)），可以读写你电脑上的文件。当你安装 Mind++ 时，Claude 会学会在该文件夹中组织笔记的特定方式 —— 这样当你说"我和张三开了个会"时，它会写笔记、提取行动项并自动更新你的任务列表。
+**Claude** 是 Claude 的桌面应用（[claude.ai/download](https://claude.ai/download) 或 `claude` 命令行工具），可以读写你电脑上的文件。当你安装 Mind++ 时，Claude 会学会在该文件夹中组织笔记的特定方式 —— 这样当你说"我和张三开了个会"时，它会写笔记、提取行动项并自动更新你的任务列表。
 
 **你不需要是开发者。** 不需要懂 Git。不需要懂 YAML。Mind++ 处理结构；你只需要和 Claude 对话。
 
@@ -43,7 +43,7 @@ Mind++ 是 [Claude Cowork](https://claude.ai/download) 的免费开源插件，�
 
 | 工具 | 作用 | 链接 |
 |------|------|------|
-| **Claude Cowork**（必需） | 运行插件的 Claude 应用 | [claude.ai/download](https://claude.ai/download) |
+| **Claude**（必需） | 桌面应用或 CLI — 运行插件 | [claude.ai/download](https://claude.ai/download) · [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code/overview) |
 | **Obsidian**（强烈推荐） | 笔记的可视化导航器 | [obsidian.md](https://obsidian.md) |
 | **你的同步选择**（可选） | 备份并在任何地方访问 —— 选一个：[Obsidian Git](https://github.com/Vinzent03/obsidian-git)、Google Drive、iCloud Drive、OneDrive 或 Dropbox | 参见 [Sync Strategies](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) |
 
@@ -52,20 +52,38 @@ Mind++ 是 [Claude Cowork](https://claude.ai/download) 的免费开源插件，�
 选择电脑上的一个文件夹。每个笔记、会议和决定都将存储在这里。
 
 - **最简单** —— 创建类似 `~/Documents/Mind++` 的文件夹
-- **自动云备份** —— 在云同步位置创建文件夹：`~/Google Drive/Mind++`、`~/OneDrive/Mind++`、`~/Dropbox/Mind++` 或 `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++`（iCloud）。Obsidian 和 Cowork 会读取相同的文件，云服务会对其进行版本控制并同步到你的所有设备。
+- **自动云备份** —— 在云同步位置创建文件夹：`~/Google Drive/Mind++`、`~/OneDrive/Mind++`、`~/Dropbox/Mind++` 或 `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++`（iCloud）。Obsidian 和 Claude 将读取相同的文件，云服务会对其进行版本控制并同步到你的所有设备。
 - **高级用户路径** —— 使用 [Obsidian Git 插件](https://github.com/Vinzent03/obsidian-git) 将你的 vault 版本化到私有 GitHub 仓库（提供提交历史、回滚以及通过 Obsidian 移动应用的 Android/iOS 同步）
 
 > 参见 [Wiki 上的 Sync Strategies 页面](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) 了解权衡和每种用例的推荐。
 
 ### 3. 安装 Mind++ 插件
 
+根据你使用 Claude 的方式选择安装路径：
+
+**路径 A — Claude 桌面应用** ([claude.ai/download](https://claude.ai/download))
+
 1. 下载最新的 [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest) 文件
-2. 打开 Claude Cowork → **Plugins**
-3. 将 `.plugin` 文件拖入插件区域（或点击安装）
+2. 打开 Claude → **设置** → **插件**
+3. 将 `.plugin` 文件拖入插件面板（或点击**从文件安装**）
 
-### 4. 在 Cowork 中选择你的 vault 文件夹
+**路径 B — Claude Code（命令行）**
 
-在 Claude Cowork 中，将你在第 2 步选择的文件夹作为工作空间。Claude 将直接读写它。
+1. 添加 Mind++ 插件市场（只需一次）：
+   ```bash
+   claude plugins marketplace add https://github.com/felipe-venturini/mind-plus-plus.git
+   ```
+2. 安装插件：
+   ```bash
+   claude plugins install mind-plus-plus@felipe-venturini
+   ```
+3. 重启 Claude Code（`/quit`，然后重新打开）。
+
+### 4. 将 Claude 指向你的 Vault 文件夹
+
+**桌面应用：** 在 Claude → **设置** 中，选择第 2 步选择的文件夹作为你的工作区。Claude 将直接读写该文件夹。
+
+**Claude Code（命令行）：** 在 Vault 文件夹内打开终端会话，或从该目录启动 Claude Code。Claude Code 使用当前工作目录作为项目根目录。
 
 ### 5. 运行 setup
 
@@ -115,7 +133,7 @@ Agents 是在隔离上下文中运行的自主子进程，返回干净的结果�
 
 ### 定时任务
 
-Cowork 可以按计划运行任何 skill。Setup 提供创建：
+Claude 可以按计划运行任何 skill。Setup 提供创建：
 
 | 任务 | 默认时间 | Skill |
 |------|---------|-------|
@@ -154,7 +172,7 @@ archive/                ← 已关闭项 —— 移到这里，从不删除
 
 ## 隐私
 
-一切都留在你的电脑上。Mind++ 不会将你的数据发送到任何地方。唯一涉及的外部服务是你在 Cowork 中明确连接的服务（例如，用于会议邮件管道的 Gmail，用于每日简报的 Google Calendar）—— 这些都是选择加入的。
+一切都留在你的电脑上。Mind++ 不会将你的数据发送到任何地方。唯一涉及的外部服务是你在 Claude 中明确连接的服务（例如，用于会议邮件管道的 Gmail，用于每日简报的 Google Calendar）—— 这些都是选择加入的。
 
 如果你使用 Obsidian Git 或云同步文件夹（Drive、OneDrive、Dropbox、iCloud），你的笔记会复制到该服务 —— 但那是你选择的，由你控制。
 
@@ -182,7 +200,7 @@ archive/                ← 已关闭项 —— 移到这里，从不删除
 
 由 [Felipe Venturini](https://github.com/felipe-venturini) 和 [sioux1to1](https://github.com/sioux1to1) **共同创作**。
 
-使用 Anthropic 的 [Claude](https://claude.ai) 构建。由 [Claude Cowork](https://claude.ai/download) 驱动，受 [Obsidian](https://obsidian.md) 社区启发。
+使用 Anthropic 的 [Claude](https://claude.ai) 构建。由 [Claude](https://claude.ai/download) 驱动，受 [Obsidian](https://obsidian.md) 社区启发。
 
 ---
 

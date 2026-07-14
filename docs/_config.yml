@@ -1,5 +1,5 @@
 title: Mind++ for Claude
-description: Your second brain, powered by Claude — inside Obsidian. Free, open-source plugin for Claude Cowork.
+description: Your second brain, powered by Claude — inside Obsidian. Free, open-source plugin for Claude.
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-relative-links

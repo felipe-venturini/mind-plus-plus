@@ -1,7 +1,7 @@
 # Security Policy
 
-Mind++ is a pure-Markdown/JSON plugin for Claude Cowork — it contains no
-executable code and runs entirely inside your own Claude Cowork environment,
+Mind++ is a pure-Markdown/JSON plugin for Claude — it contains no
+executable code and runs entirely inside your own Claude environment,
 reading and writing files in a folder you choose. Even so, we take reports
 seriously, especially anything that could cause a skill to leak or mishandle
 your data.
@@ -39,7 +39,7 @@ When reporting, please include:
 
 ## What is out of scope
 
-- Vulnerabilities in Claude Cowork, Obsidian, or third-party sync services
+- Vulnerabilities in Claude, Obsidian, or third-party sync services
   (Google Drive, iCloud, Dropbox, OneDrive) — report those to the respective
   vendors
 - Risks from external connectors you chose to enable (these are opt-in)

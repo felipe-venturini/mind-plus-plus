@@ -5,6 +5,35 @@ All notable changes to Mind++ for Claude are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.5] - 2026-07-14
+
+### Fixed
+
+- **Agent description token limit resolved.** Removed `<example>` blocks from the
+  `description` YAML field of all 68 agents — examples belong in the agent body
+  (system prompt), not in the dispatch-trigger field. Total description tokens
+  dropped from 17,817 to 5,682 (62% reduction), clearing the 15,000-token limit
+  that produced the `Agent descriptions are over the 15.0k-token limit` warning in
+  Claude Code.
+- **`model` field added to all 68 agents.** Without it, agents inherited the
+  session model (typically Opus — expensive for read-only vault work). 67 agents
+  now declare `model: haiku`; `core__specialist_judge` declares `model: sonnet`
+  because it performs cross-report synthesis and judgment.
+
+### Changed
+
+- **Installation docs: Claude Code CLI path added.** The README (root + `docs/`,
+  all 12 language versions) now documents two installation paths side by side:
+  - **Desktop app** (drag-and-drop `.plugin` file via Claude → Settings → Plugins)
+  - **Claude Code CLI** (`claude plugins marketplace add` + `claude plugins install
+    mind-plus-plus@felipe-venturini`)
+- **"Claude Cowork" branding removed throughout.** Every file that referenced
+  "Claude Cowork" (an unofficial name) has been updated to "Claude" or
+  "Claude desktop app" as appropriate. Affected files: all 12 README variants,
+  `CONTRIBUTING.md`, `SECURITY.md`, `CONNECTORS.md`, `docs/_config.yml`,
+  `.github/ISSUE_TEMPLATE/bug_report.md`, and
+  `skills/setup-mind-plus-plus/SKILL.md`.
+
 ## [1.2.4] - 2026-07-02
 
 ### Fixed
@@ -158,6 +187,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multi-language README, GitHub Pages, and canonical GitHub Wiki source
   (Home, Installation Guide, FAQ, Sync Strategies).
 
+[1.2.5]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.4...v1.2.5
+[1.2.4]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.3...v1.2.4
+[1.2.3]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.1.0...v1.2.1
 [1.1.0]: https://github.com/felipe-venturini/mind-plus-plus/compare/v1.0.0...v1.1.0

@@ -4,6 +4,7 @@
 .idea/
 .vscode/
 node_modules/
+.scripts/
 *.log
 
 # Internal planning artifacts (specs/plans) — local only, never published.

@@ -6,7 +6,7 @@
 >
 > 📖 **Full docs & guides** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **Website** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 
-Mind++ is a free, open-source plugin for [Claude Cowork](https://claude.ai/download) that turns Claude into a proactive knowledge partner. It captures meetings, tracks commitments, delivers daily briefings, and maintains a living knowledge base for your professional and personal life — all stored as plain Markdown in an [Obsidian](https://obsidian.md) vault.
+Mind++ is a free, open-source plugin for [Claude](https://claude.ai/download) that turns Claude into a proactive knowledge partner. It captures meetings, tracks commitments, delivers daily briefings, and maintains a living knowledge base for your professional and personal life — all stored as plain Markdown in an [Obsidian](https://obsidian.md) vault.
 
 **Download the plugin → [latest release](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)**
 
@@ -18,7 +18,7 @@ If you've never heard of Obsidian or written a Markdown note, don't worry. Here'
 
 **Obsidian** is a free app ([obsidian.md](https://obsidian.md)) that reads a folder of `.md` (Markdown) text files on your computer and shows them as a beautiful, linked notebook. Because everything is plain text, **your notes are yours forever** — no cloud lock-in, no paid subscription, no vendor that can disappear. Mind++ uses Obsidian's folder structure as the foundation because it's the most durable and private format for personal knowledge that exists today.
 
-**Claude Cowork** is the Claude desktop app ([claude.ai/download](https://claude.ai/download)) that can read and write files on your computer. When you install Mind++, Claude learns a specific way of organizing your notes inside that folder — so when you say "I had a meeting with John," it writes the note, extracts the action items, and updates your task list automatically.
+**Claude** ([claude.ai/download](https://claude.ai/download) or the `claude` CLI) can read and write files on your computer. When you install Mind++, Claude learns a specific way of organizing your notes inside that folder — so when you say "I had a meeting with John," it writes the note, extracts the action items, and updates your task list automatically.
 
 **You do not need to be a developer.** You don't need to know Git. You don't need to know YAML. Mind++ handles the structure; you just talk to Claude.
 
@@ -43,7 +43,7 @@ If you've never heard of Obsidian or written a Markdown note, don't worry. Here'
 
 | Tool | What it does | Link |
 |------|-------------|------|
-| **Claude Cowork** (required) | The Claude desktop app that runs the plugin | [claude.ai/download](https://claude.ai/download) |
+| **Claude** (required) | Desktop app or CLI — runs the plugin | [claude.ai/download](https://claude.ai/download) · [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code/overview) |
 | **Obsidian** (highly recommended) | Visual navigator for your notes | [obsidian.md](https://obsidian.md) |
 | **Your sync choice** (optional) | Back up and access notes anywhere — pick one: [Obsidian Git](https://github.com/Vinzent03/obsidian-git), Google Drive, iCloud Drive, OneDrive, or Dropbox | see [Sync Strategies](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) |
 
@@ -52,20 +52,38 @@ If you've never heard of Obsidian or written a Markdown note, don't worry. Here'
 Pick a folder on your computer. This is where every note, meeting, and decision will be stored.
 
 - **Simplest** — create a folder like `~/Documents/Mind++`
-- **Backed up to the cloud automatically** — create the folder inside a cloud-synced location: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++`, or `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). Obsidian and Cowork will read the same files, and the cloud service versions and syncs them to all your devices.
+- **Backed up to the cloud automatically** — create the folder inside a cloud-synced location: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++`, or `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). Obsidian and Claude will read the same files, and the cloud service versions and syncs them to all your devices.
 - **Power user path** — use the [Obsidian Git plugin](https://github.com/Vinzent03/obsidian-git) to version your vault in a private GitHub repo (gives you commit history, rollback, and Android/iOS sync via the Obsidian mobile app)
 
 > See the [Sync Strategies Wiki page](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) for trade-offs and a recommendation per use case.
 
 ### 3. Install the Mind++ plugin
 
+Choose the path that matches how you use Claude:
+
+**Path A — Claude desktop app** ([claude.ai/download](https://claude.ai/download))
+
 1. Download the latest [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest) file
-2. Open Claude Cowork → **Plugins**
-3. Drop the `.plugin` file into the plugins area (or click install)
+2. Open Claude → **Settings** → **Plugins**
+3. Drag the `.plugin` file into the plugins panel (or click **Install from file**)
 
-### 4. Select your vault folder in Cowork
+**Path B — Claude Code (CLI)**
 
-In Claude Cowork, select the folder you chose in step 2 as your workspace. Claude will read and write directly to it.
+1. Add the Mind++ marketplace once:
+   ```bash
+   claude plugins marketplace add https://github.com/felipe-venturini/mind-plus-plus.git
+   ```
+2. Install the plugin:
+   ```bash
+   claude plugins install mind-plus-plus@felipe-venturini
+   ```
+3. Restart Claude Code (`/quit`, then reopen).
+
+### 4. Point Claude to your vault folder
+
+**Desktop app:** In Claude → **Settings**, select the folder you chose in step 2 as your workspace. Claude will read and write directly to it.
+
+**Claude Code (CLI):** Open a terminal session from inside your vault folder, or start Claude Code from that directory. Claude Code uses the current working directory as the project root.
 
 ### 5. Run the setup
 
@@ -135,7 +153,7 @@ Agents are autonomous subprocesses that run in isolation and return a clean resu
 
 ### Scheduled tasks
 
-Cowork can run any skill on a schedule. Setup offers to create these:
+Claude can run any skill on a schedule. Setup offers to create these:
 
 | Task | Default schedule | Skill |
 |------|------------------|-------|
@@ -174,7 +192,7 @@ More detail on the [Wiki](https://github.com/felipe-venturini/mind-plus-plus/wik
 
 ## Privacy
 
-Everything stays on your computer. Mind++ does not send your data anywhere. The only external services involved are the ones you explicitly connect in Cowork (e.g., Gmail for the meeting-email pipeline, Google Calendar for the daily brief) — and those are opt-in.
+Everything stays on your computer. Mind++ does not send your data anywhere. The only external services involved are the ones you explicitly connect in Claude (e.g., Gmail for the meeting-email pipeline, Google Calendar for the daily brief) — and those are opt-in.
 
 If you use Obsidian Git or a cloud-synced folder (Drive, OneDrive, Dropbox, iCloud), your notes are replicated to that service — but you chose it and you control it.
 
@@ -202,7 +220,7 @@ A short list — full FAQ on the [Wiki](https://github.com/felipe-venturini/mind
 
 **Co-authored by** [Felipe Venturini](https://github.com/felipe-venturini) and [sioux1to1](https://github.com/sioux1to1).
 
-Built with [Claude](https://claude.ai) by Anthropic. Powered by [Claude Cowork](https://claude.ai/download) and inspired by the [Obsidian](https://obsidian.md) community.
+Built with [Claude](https://claude.ai) by Anthropic. Powered by [Claude](https://claude.ai/download) and inspired by the [Obsidian](https://obsidian.md) community.
 
 ---
 

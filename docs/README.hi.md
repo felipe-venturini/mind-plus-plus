@@ -6,7 +6,7 @@
 >
 > 📖 **पूरे दस्तावेज़ और गाइड** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **वेबसाइट** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 
-Mind++ [Claude Cowork](https://claude.ai/download) के लिए एक मुफ्त, ओपन-सोर्स प्लगइन है जो Claude को एक सक्रिय ज्ञान सहयोगी में बदल देता है। यह मीटिंग कैप्चर करता है, प्रतिबद्धताओं को ट्रैक करता है, दैनिक ब्रीफिंग देता है, और आपके पेशेवर और व्यक्तिगत जीवन के लिए एक जीवंत ज्ञान आधार बनाए रखता है — सब कुछ [Obsidian](https://obsidian.md) vault के अंदर साधारण Markdown के रूप में संग्रहीत।
+Mind++ [Claude](https://claude.ai/download) के लिए एक मुफ्त, ओपन-सोर्स प्लगइन है जो Claude को एक सक्रिय ज्ञान सहयोगी में बदल देता है। यह मीटिंग कैप्चर करता है, प्रतिबद्धताओं को ट्रैक करता है, दैनिक ब्रीफिंग देता है, और आपके पेशेवर और व्यक्तिगत जीवन के लिए एक जीवंत ज्ञान आधार बनाए रखता है — सब कुछ [Obsidian](https://obsidian.md) vault के अंदर साधारण Markdown के रूप में संग्रहीत।
 
 **प्लगइन डाउनलोड करें → [नवीनतम रिलीज़](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)**
 
@@ -18,7 +18,7 @@ Mind++ [Claude Cowork](https://claude.ai/download) के लिए एक म�
 
 **Obsidian** एक मुफ्त ऐप है ([obsidian.md](https://obsidian.md)) जो आपके कंप्यूटर पर `.md` (Markdown, सादा टेक्स्ट) फ़ाइलों का एक फ़ोल्डर पढ़ता है और उन्हें एक सुंदर, जुड़ी हुई नोटबुक के रूप में दिखाता है। चूंकि सब कुछ सादा टेक्स्ट है, **आपके नोट्स हमेशा आपके हैं** — कोई क्लाउड लॉक-इन नहीं, कोई पेड सब्सक्रिप्शन नहीं, कोई विक्रेता जो गायब हो सके। Mind++ Obsidian की फ़ोल्डर संरचना को आधार के रूप में उपयोग करता है क्योंकि यह व्यक्तिगत ज्ञान के लिए आज मौजूद सबसे टिकाऊ और निजी प्रारूप है।
 
-**Claude Cowork** Claude का डेस्कटॉप ऐप ([claude.ai/download](https://claude.ai/download)) है जो आपके कंप्यूटर पर फ़ाइलें पढ़ और लिख सकता है। जब आप Mind++ इंस्टॉल करते हैं, तो Claude आपके नोट्स को उस फ़ोल्डर में व्यवस्थित करने का एक विशिष्ट तरीका सीखता है — इसलिए जब आप कहते हैं "मेरी जॉन के साथ मीटिंग हुई," यह नोट लिखता है, एक्शन आइटम निकालता है, और आपकी टास्क लिस्ट को स्वचालित रूप से अपडेट करता है।
+**Claude** ([claude.ai/download](https://claude.ai/download) या `claude` CLI) आपके कंप्यूटर पर फ़ाइलें पढ़ और लिख सकता है। जब आप Mind++ इंस्टॉल करते हैं, तो Claude आपके नोट्स को उस फ़ोल्डर में व्यवस्थित करने का एक विशिष्ट तरीका सीखता है — इसलिए जब आप कहते हैं "मेरी जॉन के साथ मीटिंग हुई," यह नोट लिखता है, एक्शन आइटम निकालता है, और आपकी टास्क लिस्ट को स्वचालित रूप से अपडेट करता है।
 
 **आपको डेवलपर होने की आवश्यकता नहीं है।** Git जानने की आवश्यकता नहीं। YAML जानने की आवश्यकता नहीं। Mind++ संरचना संभालता है; आप बस Claude से बात करते हैं।
 
@@ -43,7 +43,7 @@ Mind++ [Claude Cowork](https://claude.ai/download) के लिए एक म�
 
 | टूल | क्या करता है | लिंक |
 |-----|------------|------|
-| **Claude Cowork** (आवश्यक) | Claude ऐप जो प्लगइन चलाता है | [claude.ai/download](https://claude.ai/download) |
+| **Claude** (आवश्यक) | डेस्कटॉप ऐप या CLI — प्लगइन चलाता है | [claude.ai/download](https://claude.ai/download) · [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code/overview) |
 | **Obsidian** (अत्यधिक अनुशंसित) | आपके नोट्स के लिए विज़ुअल नेविगेटर | [obsidian.md](https://obsidian.md) |
 | **आपकी सिंक पसंद** (वैकल्पिक) | कहीं भी बैकअप और एक्सेस — एक चुनें: [Obsidian Git](https://github.com/Vinzent03/obsidian-git), Google Drive, iCloud Drive, OneDrive, या Dropbox | देखें [Sync Strategies](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) |
 
@@ -52,20 +52,38 @@ Mind++ [Claude Cowork](https://claude.ai/download) के लिए एक म�
 अपने कंप्यूटर पर एक फ़ोल्डर चुनें। यहाँ हर नोट, मीटिंग, और निर्णय संग्रहीत किया जाएगा।
 
 - **सबसे सरल** — `~/Documents/Mind++` जैसा फ़ोल्डर बनाएं
-- **स्वचालित रूप से क्लाउड में बैकअप** — क्लाउड-सिंक किए गए स्थान के अंदर फ़ोल्डर बनाएं: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++`, या `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud)। Obsidian और Cowork वही फ़ाइलें पढ़ेंगे, और क्लाउड सेवा उनका संस्करण बनाती है और आपके सभी उपकरणों में सिंक करती है।
+- **स्वचालित रूप से क्लाउड में बैकअप** — क्लाउड-सिंक किए गए स्थान के अंदर फ़ोल्डर बनाएं: `~/Google Drive/Mind++`, `~/OneDrive/Mind++`, `~/Dropbox/Mind++`, या `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud)। Obsidian और Claude वही फ़ाइलें पढ़ेंगे, और क्लाउड सेवा उनका संस्करण बनाती है और आपके सभी उपकरणों में सिंक करती है।
 - **पावर उपयोगकर्ता पथ** — अपने vault को निजी GitHub रिपॉजिटरी में संस्करणित करने के लिए [Obsidian Git प्लगइन](https://github.com/Vinzent03/obsidian-git) का उपयोग करें (आपको कमिट इतिहास, रोलबैक, और Obsidian मोबाइल ऐप के माध्यम से Android/iOS सिंक देता है)
 
 > ट्रेड-ऑफ और प्रति उपयोग मामले की सिफारिश के लिए [Wiki पर Sync Strategies पृष्ठ](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) देखें।
 
-### 3. Mind++ प्लगइन इंस्टॉल करें
+### 3. Mind++ plugin इंस्टॉल करें
+
+अपने Claude उपयोग के अनुसार path चुनें:
+
+**विकल्प A — Claude Desktop App** ([claude.ai/download](https://claude.ai/download))
 
 1. नवीनतम [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest) फ़ाइल डाउनलोड करें
-2. Claude Cowork खोलें → **Plugins**
-3. `.plugin` फ़ाइल को प्लगइन क्षेत्र में ड्रॉप करें (या इंस्टॉल पर क्लिक करें)
+2. Claude खोलें → **Settings** → **Plugins**
+3. `.plugin` फ़ाइल को plugins panel में drag करें (या **Install from file** पर click करें)
 
-### 4. Cowork में अपना vault फ़ोल्डर चुनें
+**विकल्प B — Claude Code (CLI)**
 
-Claude Cowork में, चरण 2 में चुने गए फ़ोल्डर को अपने वर्कस्पेस के रूप में चुनें। Claude सीधे इसमें पढ़ेगा और लिखेगा।
+1. Mind++ marketplace एक बार add करें:
+   ```bash
+   claude plugins marketplace add https://github.com/felipe-venturini/mind-plus-plus.git
+   ```
+2. Plugin इंस्टॉल करें:
+   ```bash
+   claude plugins install mind-plus-plus@felipe-venturini
+   ```
+3. Claude Code restart करें (`/quit`, फिर दोबारा खोलें)।
+
+### 4. Claude को अपने vault folder की ओर point करें
+
+**Desktop App:** Claude → **Settings** में, step 2 में चुनी गई folder को अपना workspace चुनें। Claude सीधे उसमें read और write करेगा।
+
+**Claude Code (CLI):** अपने vault folder के अंदर terminal session खोलें, या उस directory से Claude Code शुरू करें। Claude Code current working directory को project root के रूप में उपयोग करता है।
 
 ### 5. Setup चलाएँ
 
@@ -115,7 +133,7 @@ Agents स्वायत्त उप-प्रक्रियाएँ है�
 
 ### निर्धारित कार्य
 
-Cowork किसी भी skill को एक शेड्यूल पर चला सकता है। Setup इन्हें बनाने की पेशकश करता है:
+Claude किसी भी skill को एक शेड्यूल पर चला सकता है। Setup इन्हें बनाने की पेशकश करता है:
 
 | कार्य | डिफ़ॉल्ट शेड्यूल | Skill |
 |-------|----------------|-------|
@@ -154,7 +172,7 @@ archive/               ← बंद आइटम — यहाँ स्था�
 
 ## गोपनीयता
 
-सब कुछ आपके कंप्यूटर पर रहता है। Mind++ आपका डेटा कहीं नहीं भेजता। केवल बाहरी सेवाएँ जो शामिल हैं वे हैं जिन्हें आप Cowork में स्पष्ट रूप से कनेक्ट करते हैं (जैसे, मीटिंग-ईमेल पाइपलाइन के लिए Gmail, दैनिक ब्रीफ के लिए Google Calendar) — और वे ऑप्ट-इन हैं।
+सब कुछ आपके कंप्यूटर पर रहता है। Mind++ आपका डेटा कहीं नहीं भेजता। केवल बाहरी सेवाएँ जो शामिल हैं वे हैं जिन्हें आप Claude में स्पष्ट रूप से कनेक्ट करते हैं (जैसे, मीटिंग-ईमेल पाइपलाइन के लिए Gmail, दैनिक ब्रीफ के लिए Google Calendar) — और वे ऑप्ट-इन हैं।
 
 यदि आप Obsidian Git या क्लाउड-सिंक किए गए फ़ोल्डर (Drive, OneDrive, Dropbox, iCloud) का उपयोग करते हैं, तो आपके नोट्स उस सेवा में दोहराए जाते हैं — लेकिन आपने इसे चुना और आप इसे नियंत्रित करते हैं।
 
@@ -182,7 +200,7 @@ archive/               ← बंद आइटम — यहाँ स्था�
 
 [Felipe Venturini](https://github.com/felipe-venturini) और [sioux1to1](https://github.com/sioux1to1) द्वारा **सह-लेखन**।
 
-Anthropic द्वारा [Claude](https://claude.ai) के साथ निर्मित। [Claude Cowork](https://claude.ai/download) द्वारा संचालित और [Obsidian](https://obsidian.md) समुदाय से प्रेरित।
+Anthropic द्वारा [Claude](https://claude.ai) के साथ निर्मित। Powered by [Claude](https://claude.ai/download) और [Obsidian](https://obsidian.md) समुदाय से प्रेरित।
 
 ---
 

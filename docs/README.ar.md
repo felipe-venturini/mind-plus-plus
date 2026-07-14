@@ -6,7 +6,7 @@
 >
 > 📖 **الوثائق الكاملة والأدلة** → [GitHub Wiki](https://github.com/felipe-venturini/mind-plus-plus/wiki) · 🌐 **الموقع** → [felipe-venturini.github.io/mind-plus-plus](https://felipe-venturini.github.io/mind-plus-plus)
 
-Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [Claude Cowork](https://claude.ai/download) تحوّل Claude إلى شريك معرفي استباقي. يلتقط الاجتماعات، ويتتبع الالتزامات، ويقدّم إحاطات يومية، ويحافظ على قاعدة معرفة حيّة لحياتك المهنية والشخصية — وكل ذلك مُخزَّن كملفات Markdown بسيطة داخل خزنة (vault) [Obsidian](https://obsidian.md).
+Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [Claude](https://claude.ai/download) تحوّل Claude إلى شريك معرفي استباقي. يلتقط الاجتماعات، ويتتبع الالتزامات، ويقدّم إحاطات يومية، ويحافظ على قاعدة معرفة حيّة لحياتك المهنية والشخصية — وكل ذلك مُخزَّن كملفات Markdown بسيطة داخل خزنة (vault) [Obsidian](https://obsidian.md).
 
 **تنزيل الإضافة → [آخر إصدار](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)**
 
@@ -18,7 +18,7 @@ Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [C
 
 **Obsidian** هو تطبيق مجاني ([obsidian.md](https://obsidian.md)) يقرأ مجلدًا من ملفات `.md` (Markdown، نص عادي) على جهازك ويعرضها كدفتر ملاحظات جميل ومترابط. وبما أن كل شيء نص عادي، **فإن ملاحظاتك تبقى لك إلى الأبد** — لا احتجاز سحابي، ولا اشتراك مدفوع، ولا مُورّد قد يختفي. يستخدم Mind++ بنية Obsidian كأساس لأنه أكثر تنسيق للمعرفة الشخصية متانةً وخصوصيةً اليوم.
 
-**Claude Cowork** هو تطبيق سطح المكتب الخاص بـ Claude ([claude.ai/download](https://claude.ai/download)) الذي يمكنه قراءة وكتابة الملفات على جهازك. عند تثبيت Mind++، يتعلم Claude طريقة معيّنة لتنظيم ملاحظاتك داخل ذلك المجلد — فعندما تقول "لقد عقدت اجتماعًا مع أحمد"، يكتب الملاحظة، ويستخرج بنود العمل، ويحدّث قائمة مهامك تلقائيًا.
+**Claude** ([claude.ai/download](https://claude.ai/download) أو CLI `claude`) هو التطبيق الذي يمكنه قراءة وكتابة الملفات على جهازك. عند تثبيت Mind++، يتعلم Claude طريقة معيّنة لتنظيم ملاحظاتك داخل ذلك المجلد — فعندما تقول "لقد عقدت اجتماعًا مع أحمد"، يكتب الملاحظة، ويستخرج بنود العمل، ويحدّث قائمة مهامك تلقائيًا.
 
 **لست بحاجة لأن تكون مطوّرًا.** لست بحاجة لمعرفة Git. لست بحاجة لمعرفة YAML. يتولى Mind++ البنية؛ وأنت فقط تتحدث مع Claude.
 
@@ -43,7 +43,7 @@ Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [C
 
 | الأداة | ما تفعله | الرابط |
 |-------|----------|--------|
-| **Claude Cowork** (إلزامي) | تطبيق Claude الذي يشغّل الإضافة | [claude.ai/download](https://claude.ai/download) |
+| **تطبيق سطح المكتب أو CLI** (إلزامي) | يشغّل الإضافة | [claude.ai/download](https://claude.ai/download) · [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code/overview) |
 | **Obsidian** (موصى به بشدة) | متصفح بصري لملاحظاتك | [obsidian.md](https://obsidian.md) |
 | **خيار المزامنة** (اختياري) | نسخ احتياطي ووصول من أي مكان — اختر واحدًا: [Obsidian Git](https://github.com/Vinzent03/obsidian-git)، Google Drive، iCloud Drive، OneDrive أو Dropbox | انظر [Sync Strategies](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) |
 
@@ -52,20 +52,38 @@ Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [C
 اختر مجلدًا على جهازك. هنا ستُحفظ كل ملاحظة واجتماع وقرار.
 
 - **الأبسط** — أنشئ مجلدًا مثل `~/Documents/Mind++`
-- **نسخ احتياطي سحابي تلقائي** — أنشئ المجلد داخل موقع مُزامن سحابيًا: `~/Google Drive/Mind++`، `~/OneDrive/Mind++`، `~/Dropbox/Mind++` أو `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). سيقرأ Obsidian و Cowork نفس الملفات، وستقوم الخدمة السحابية بإصدارها ومزامنتها عبر جميع أجهزتك.
+- **نسخ احتياطي سحابي تلقائي** — أنشئ المجلد داخل موقع مُزامن سحابيًا: `~/Google Drive/Mind++`، `~/OneDrive/Mind++`، `~/Dropbox/Mind++` أو `~/Library/Mobile Documents/com~apple~CloudDocs/Mind++` (iCloud). سيقرأ Obsidian و Claude نفس الملفات، وستقوم الخدمة السحابية بإصدارها ومزامنتها عبر جميع أجهزتك.
 - **مسار المستخدم المتقدم** — استخدم [إضافة Obsidian Git](https://github.com/Vinzent03/obsidian-git) لإصدار خزنتك في مستودع GitHub خاص (يمنحك تاريخ الالتزامات، والتراجع، ومزامنة Android/iOS عبر تطبيق Obsidian للجوال)
 
 > انظر [صفحة Sync Strategies على الويكي](https://github.com/felipe-venturini/mind-plus-plus/wiki/Sync-Strategies) للموازنات والتوصية لكل حالة استخدام.
 
-### 3. ثبّت إضافة Mind++
+### 3. تثبيت إضافة Mind++
+
+اختر المسار الذي يناسب طريقة استخدامك لـ Claude:
+
+**المسار أ — تطبيق Claude سطح المكتب** ([claude.ai/download](https://claude.ai/download))
 
 1. نزّل أحدث ملف [`mind-plus-plus.plugin`](https://github.com/felipe-venturini/mind-plus-plus/releases/latest)
-2. افتح Claude Cowork ← **Plugins**
-3. اسحب ملف `.plugin` إلى منطقة الإضافات (أو انقر على تثبيت)
+2. افتح Claude → **الإعدادات** → **الإضافات**
+3. اسحب ملف `.plugin` إلى لوحة الإضافات (أو انقر **تثبيت من ملف**)
 
-### 4. اختر مجلد خزنتك في Cowork
+**المسار ب — Claude Code (CLI)**
 
-في Claude Cowork، اختر المجلد الذي اخترته في الخطوة 2 كمساحة عملك. سيقرأ Claude ويكتب فيه مباشرة.
+1. أضف سوق Mind++ مرة واحدة:
+   ```bash
+   claude plugins marketplace add https://github.com/felipe-venturini/mind-plus-plus.git
+   ```
+2. ثبّت الإضافة:
+   ```bash
+   claude plugins install mind-plus-plus@felipe-venturini
+   ```
+3. أعد تشغيل Claude Code (`/quit`، ثم افتحه مجدداً).
+
+### 4. وجّه Claude إلى مجلد الـ vault
+
+**تطبيق سطح المكتب:** في Claude → **الإعدادات**، اختر المجلد الذي حددته في الخطوة 2 مساحةً للعمل. سيقرأ Claude منه ويكتب إليه مباشرةً.
+
+**Claude Code (CLI):** افتح جلسة طرفية داخل مجلد الـ vault، أو ابدأ Claude Code من ذلك الدليل. يستخدم Claude Code دليل العمل الحالي جذراً للمشروع.
 
 ### 5. شغّل الإعداد
 
@@ -115,7 +133,7 @@ Mind++ هو إضافة (plugin) مجانية ومفتوحة المصدر لـ [C
 
 ### المهام المجدولة
 
-يستطيع Cowork تشغيل أي مهارة وفق جدول. يعرض الإعداد إنشاء:
+يستطيع Claude تشغيل أي مهارة وفق جدول. يعرض الإعداد إنشاء:
 
 | المهمة | الجدول الافتراضي | المهارة |
 |--------|------------------|---------|
@@ -154,7 +172,7 @@ archive/                ← عناصر مغلقة — تُنقل هنا، لا �
 
 ## الخصوصية
 
-كل شيء يبقى على جهازك. لا يرسل Mind++ بياناتك إلى أي مكان. الخدمات الخارجية الوحيدة المعنية هي تلك التي تربطها صراحةً في Cowork (مثلًا، Gmail لخط أنابيب الاجتماعات، Google Calendar للإحاطة اليومية) — وهي اشتراك اختياري.
+كل شيء يبقى على جهازك. لا يرسل Mind++ بياناتك إلى أي مكان. الخدمات الخارجية الوحيدة المعنية هي تلك التي تربطها صراحةً في Claude (مثلًا، Gmail لخط أنابيب الاجتماعات، Google Calendar للإحاطة اليومية) — وهي اشتراك اختياري.
 
 إذا استخدمت Obsidian Git أو مجلدًا مُزامنًا سحابيًا (Drive، OneDrive، Dropbox، iCloud)، فسيتم نسخ ملاحظاتك إلى تلك الخدمة — لكنك اخترتها وأنت تتحكم بها.
 
@@ -182,7 +200,7 @@ archive/                ← عناصر مغلقة — تُنقل هنا، لا �
 
 **تأليف مشترك من** [Felipe Venturini](https://github.com/felipe-venturini) و [sioux1to1](https://github.com/sioux1to1).
 
-مبنيّ باستخدام [Claude](https://claude.ai) من Anthropic. مدعوم بـ [Claude Cowork](https://claude.ai/download) ومستوحى من مجتمع [Obsidian](https://obsidian.md).
+مبنيّ باستخدام [Claude](https://claude.ai) من Anthropic. مدعوم بـ [Claude](https://claude.ai/download) ومستوحى من مجتمع [Obsidian](https://obsidian.md).
 
 ---
 

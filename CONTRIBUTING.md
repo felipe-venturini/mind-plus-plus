@@ -13,7 +13,7 @@ Include:
 - What you expected to happen
 - What actually happened
 - Steps to reproduce (if a bug)
-- Your Claude Cowork version
+- Your Claude version
 
 ### Submit a pull request
 

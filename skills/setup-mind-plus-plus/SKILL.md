@@ -128,7 +128,7 @@ If it already exists, preserve the content and only add missing sections.
 
 ## Step 6 — Offer scheduled tasks
 
-Cowork supports scheduled tasks — recurring runs evaluated in the user's local timezone. Offer to create any of the following (one by one, waiting for explicit confirmation for each):
+Claude supports scheduled tasks — recurring runs evaluated in the user's local timezone. Offer to create any of the following (one by one, waiting for explicit confirmation for each):
 
 | Task | Suggested cron | Purpose |
 |------|----------------|---------|
@@ -144,7 +144,7 @@ When confirmed, call the `create_scheduled_task` tool with:
 - A `cronExpression` in the user's local timezone
 - A self-contained `prompt` that re-triggers the skill (example: "Run the daily-brief skill for today")
 
-Important caveat to mention: **Scheduled tasks only fire when Cowork is running on the user's Mac.** Missed tasks queue until next session. This is client-side, not cloud-based.
+Important caveat to mention: **Scheduled tasks only fire when Claude is running on the user's Mac.** Missed tasks queue until next session. This is client-side, not cloud-based.
 
 ---
 

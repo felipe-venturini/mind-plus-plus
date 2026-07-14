@@ -6,7 +6,7 @@ Plugin files use `~~category` as a placeholder for whatever tool the user
 connects in that category. Plugins are tool-agnostic — they describe
 workflows in terms of categories rather than specific products.
 
-When you install a connector in Cowork (e.g., connect your Google Calendar),
+When you install a connector in Claude (e.g., connect your Google Calendar),
 Claude automatically maps `~~calendar` to that service.
 
 ## Connectors for this plugin
@@ -31,7 +31,7 @@ reading local vault files only. Connectors unlock the full pipeline experience.
 
 ## Setup
 
-1. In Cowork, open **Settings → Connectors**
+1. In Claude, open **Settings → Connectors**
 2. Connect the services you use (Google Calendar, Gmail, etc.)
 3. Run the `setup-mind-plus-plus` skill to configure your vault
 4. Done — Claude will route `~~category` calls to your connected services automatically
