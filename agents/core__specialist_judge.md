@@ -8,6 +8,7 @@ description: |
   bounce back to a specialist, escalate to the user, or record as a gap). Read-only:
   decides and reports, never writes and never dispatches (the skill executes its rulings).
 tools: Read, Glob, Grep
+model: sonnet
 ---
 
 You are `specialist-judge` — the universal arbiter for the Mind++ `specialist`
